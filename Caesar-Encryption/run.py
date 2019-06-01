@@ -1,3 +1,5 @@
+# Link: https://www.mysterytwisterc3.org/en/challenges/level-i/caesar-encryption
+
 cipher_file = open('input.txt')
 cipher = cipher_file.read()[:-1]
 
