@@ -1,1 +1,1 @@
-This repo contains my solutions for Cryptographic Challenges.
+This repo contains my solutions for Programming Challenges.
