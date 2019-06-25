@@ -1,0 +1,7 @@
+.vscode
+MAKEFILE
+bin/
+obj/
+*.cbp
+*.depend
+input.txt
