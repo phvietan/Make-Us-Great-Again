@@ -1,3 +1,7 @@
+/**
+ * https : //www.hackerrank.com/contests/university-codesprint-5/challenges/cube-loving-numbers
+ * */
+
 #include <bits/stdc++.h>
 
 using namespace std;
