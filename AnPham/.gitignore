@@ -4,4 +4,8 @@ bin/
 obj/
 *.cbp
 *.depend
+<<<<<<< HEAD
 input.txt
+=======
+*.layout
+>>>>>>> b61f7c460557703ff2d2ef4860f6717d2c13d83b
