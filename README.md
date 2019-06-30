@@ -6,6 +6,9 @@ Each person should have their own branch containing their solutions. After the e
 ### Purpose:
 The purpose of this repo is to remind and empower the responsibility of each person to constantly improve themselves over time.
 
+### Note:
+If there is some solutions from a contributor that you want to dig deeper, just open an issue.
+
 # MAKE US GREAT AGAIN!!!!!!!!!!
 
 To participate in this project:
