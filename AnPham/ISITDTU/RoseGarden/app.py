@@ -20,7 +20,7 @@ async def check_func(hostname, port):
         if inet_aton(hostname) != b'\x7f\x00\x00\x01': 0/0
 
         if not port: port = 80
-        
+
         result = []
         with ThreadPoolExecutor(max_workers=3) as executor:
             loop = asyncio.get_event_loop()
