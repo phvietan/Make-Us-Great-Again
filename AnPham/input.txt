@@ -1,2 +1,5 @@
-7
-ababacd
+4
+same
+same
+same
+differ
