@@ -18,4 +18,35 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-int main() { return 0; }
+int main() {
+
+    // int q;
+    // cin >> q;
+    // while (q--) {
+    //     ll n;
+    //     cin >> n;
+    //     FOR(i, 0, 26) {
+    //         if ((1ll << i) - 1 > n) {
+    //             cout << ((1ll << i) - 1) << endl;
+    //             break;
+    //         } else if ((1ll << i) - 1 == n) {
+    //             break;
+    //         }
+    //     }
+    // }
+
+    FOR(k, 1, 20) {
+        int t = (1 << k) - 1;
+        int x = -1, g = -1;
+        FOR(i, 1, t - 1) {
+            if (__gcd(t & i, t | i) >= x) {
+                x = __gcd(t & i, t | i);
+                g = i;
+            }
+        }
+        cout << bitset<16>(t) << " - " << bitset<16>(x) << endl;
+        // cout << k << " - " << t << ": " << x << " ---  " << g << endl;
+    }
+
+    return 0;
+}
