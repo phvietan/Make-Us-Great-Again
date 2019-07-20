@@ -1,3 +1,5 @@
+import base64
+
 def normalizeHex(s):
   if (s[0:2] == '0x'): s = s[2:]
   if (s[-1] == 'L'): s = s[0:-1]
@@ -14,11 +16,13 @@ def encrypt(s, k):
   result = ''
   for i in range(len(s)):
     j = i % len(k)
-    result += xor(s[i], k[j])
-  while result[0] == '0': result = result[1:]
-  return result
+    result += chr(ord(s[i]) ^ ord(k[j]))
+  return base64.b64encode(result.encode('ascii'))
 
 if __name__ == '__main__':
-  plaintext = open('../Resources/Set1_5.txt').read()
+  plaintext = open('message.txt').read()
   key = 'ICE'
-  print(encrypt(plaintext, key))
+  ciphertext = encrypt(plaintext, key)
+  fw = open('encrypted.txt', 'wb')
+  fw.write(ciphertext)
+  fw.close()
