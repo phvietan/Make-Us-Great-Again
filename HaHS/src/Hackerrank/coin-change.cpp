@@ -1,3 +1,10 @@
+/**
+ * http://codeforces.com/contest/1110/problem/B
+ *
+ * Difficulty   : dễ
+ * Problem tags : dp
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
