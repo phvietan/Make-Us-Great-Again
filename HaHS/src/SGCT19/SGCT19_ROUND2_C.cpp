@@ -1,3 +1,8 @@
+/**
+ * Difficulty   : dễ
+ * Problem tags : none
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -29,22 +34,13 @@ int main() {
     FOR(i, 1, n) cin >> a[i];
     FOR(i, 1, n) cin >> b[i];
 
-    if (a[1] != b[1] || a[n] != b[n]) {
-        cout << "No\n";
-        return 0;
-    }
+    ll sum = 0ll;
+    FOR(i, 1, n) sum += b[i];
 
-    multiset<int> diffA, diffB;
-    FOR(i, 1, n - 1) {
-        diffA.insert(a[i + 1] - a[i]);
-        diffB.insert(b[i + 1] - b[i]);
-    }
+    ll res = sum - b[1] + a[1];
+    FOR(i, 2, n) res = max(res, sum - b[i] + a[i]);
 
-    if (diffA == diffB) {
-        cout << "Yes\n";
-    } else {
-        cout << "No\n";
-    }
+    cout << res << endl;
 
     return 0;
 }

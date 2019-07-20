@@ -1,3 +1,8 @@
+/**
+ * Difficulty   : dễ
+ * Problem tags : none
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -18,33 +23,13 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-const int N = 1e5 + 5;
-int n, a[N], b[N];
-
 int main() {
 
-    faster;
-
-    cin >> n;
-    FOR(i, 1, n) cin >> a[i];
-    FOR(i, 1, n) cin >> b[i];
-
-    if (a[1] != b[1] || a[n] != b[n]) {
-        cout << "No\n";
-        return 0;
-    }
-
-    multiset<int> diffA, diffB;
-    FOR(i, 1, n - 1) {
-        diffA.insert(a[i + 1] - a[i]);
-        diffB.insert(b[i + 1] - b[i]);
-    }
-
-    if (diffA == diffB) {
-        cout << "Yes\n";
-    } else {
-        cout << "No\n";
-    }
+    ll k;
+    cin >> k;
+    while (k % 2 == 0)
+        k /= 2;
+    cout << k << endl;
 
     return 0;
 }

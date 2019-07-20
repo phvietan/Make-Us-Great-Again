@@ -1,4 +1,4 @@
-# Nameless
+# HaHS
 
 ## Quickstart
 
@@ -40,6 +40,26 @@ Input data:
 1 2 3 4 5 6 8 8
 ```
 
+### Build and run any cpp files
+
+```bash
+./test.sh [path/to/cpp].cpp
+
+# Example
+## build and run file *.cpp
+./test.sh ./main.cpp
+./test.sh ./example.cpp < INP.TXT
+./test.sh ./src/Codeforces/1110A.cpp < INP.TXT
+```
+
+After testing a file, other binary file with suffix `*.bin` will be generated.
+
+To clean all files `*.bin`, run
+
+```bash
+./clean.sh
+```
+
 ## Understanding
 
 ```bash
@@ -48,10 +68,12 @@ Input data:
 │   ├── depend
 │   └── main.o
 ├── example.cpp     # example file cpp
-├── hackerrank.sh   # script for hackerrank
-├── INP.TXT         # change standard input from this file
-├── main            # ignored, binary file after build
 ├── main.cpp        # file is compiled and run by `make`
+├── main            # ignored, binary file after build by `make`
+├── hackerrank.sh   # script for hackerrank
+├── test.sh         # build and run g++ for .cpp files
+├── clean.sh        # clean generated binary and object files
+├── INP.TXT         # change standard input from this file
 ├── Makefile
 |── README.md
 ├── .vscode

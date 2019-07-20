@@ -1,3 +1,14 @@
+/**
+ * http://codeforces.com/contest/1110/problem/E
+ *
+ * Difficulty   : medium
+ * Problem tags : math
+ *
+ * Tutorial: Nhận xét khi thực hiện đổi c[i], hiệu (c[i+1]-c[i]) với
+ * (c[i]-c[i-1]) swap cho nhau. Nên sau các phép biến đổi, tập hiệu các phần tử
+ * kề nhau là không đổi
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;

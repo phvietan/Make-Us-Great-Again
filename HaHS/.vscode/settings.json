@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "files.associations": {
+        ".eslintrc": "jsonc",
+        "*.ejs": "html",
+        "memory": "cpp",
+        "regex": "cpp",
+        "utility": "cpp"
+    }
+}
