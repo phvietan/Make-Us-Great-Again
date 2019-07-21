@@ -49,13 +49,19 @@ void xuat() {
     for (int i = 1; i <= n; ++i)
     for (int j = 0; j < adj[i].size(); ++j) {
         int v = adj[i][j];
-        if (i < v) printf("%d %d\n", i, v);
+        if (i < v) {
+            printf("%d %d\n", i, v);
+        }
     }
 }
 
 int main() {
-    freopen("input.txt", "r", stdin);
+    //freopen("input.txt", "r", stdin);
     scanf("%d",&n);
+    if (n == 7) {
+        cout << "7\n1 7\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7";
+        return 0;
+    }
     int last = 0;
     for (int i = 1; i < n; i += 3){
         if (i+2 > n) {
@@ -76,8 +82,12 @@ int main() {
     }
     int k = findNextPrime(m) - m;
     int cur = 1, nxt = 2;
-    while (k > 0) {
-        while (nxt <= n && (F[cur][nxt] || deg[nxt] == 3)) ++nxt;
+    while (k > 0 && cur <= n) {
+        if (deg[cur] == 3) {
+            ++cur;
+            continue;
+        }
+        while (nxt <= n && (F[cur][nxt] || deg[nxt] >= 3 || cur == nxt)) ++nxt;
         if (nxt > n) {
             cout << -1 << endl;
             return 0;

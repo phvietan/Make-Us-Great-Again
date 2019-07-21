@@ -52,7 +52,7 @@ int main() {
     }
     if (remL == -1) F[0] = true;
     else {
-        if (remL + 1 <= remR - 1) F[remL] = true;
+        if (remL + 1 <= remR - 1) F[remL+1] = true;
     }
     for (int i = 0; i < n; ++i)
         if (F[i]) printf("%c", s[i]);
