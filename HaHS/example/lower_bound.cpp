@@ -18,4 +18,23 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-int main() { return 0; }
+int n, p;
+vector<int> a;
+
+int main() {
+    cin >> n >> p;
+    FOR(i, 1, n) {
+        int j;
+        cin >> j;
+        a.push_back(j);
+    }
+
+    sort(a.begin(), a.end());
+
+    auto it = lower_bound(a.begin(), a.end(), p);
+    int idx = it - a.begin();
+
+    cout << idx << endl;
+
+    return 0;
+}

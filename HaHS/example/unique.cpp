@@ -18,4 +18,24 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-int main() { return 0; }
+int n;
+vector<int> a;
+
+int main() {
+    cin >> n;
+    FOR(i, 1, n) {
+        int j;
+        cin >> j;
+        a.push_back(j);
+    }
+
+    sort(a.begin(), a.end());
+
+    auto it = unique(a.begin(), a.end());
+    a.resize(distance(a.begin(), it));
+
+    for (int x : a)
+        cout << x << endl;
+
+    return 0;
+}
