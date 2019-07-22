@@ -7,6 +7,13 @@
         "regex": "cpp",
         "utility": "cpp",
         "vector": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "bitset": "cpp",
+        "random": "cpp",
+        "unordered_set": "cpp",
+        "set": "cpp",
+        "algorithm": "cpp",
+        "tuple": "cpp"
     }
 }

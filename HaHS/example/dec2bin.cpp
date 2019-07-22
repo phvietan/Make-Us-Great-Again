@@ -18,4 +18,21 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-int main() { return 0; }
+int main() {
+
+    int n = (1 << 12) - (1 << 8) - (1 << 5) - (1 << 4);
+    const int len = 15;
+    bitset<len> f = bitset<len>(n);
+
+    cout << f.size() << endl;
+    cout << f.to_string() << endl;
+
+    /**
+     * Output
+     * =================
+     * 15
+     * 000111011010000
+     */
+
+    return 0;
+}
