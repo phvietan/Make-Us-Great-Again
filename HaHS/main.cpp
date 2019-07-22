@@ -18,88 +18,57 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-const int N = 1e6 + 6;
-int n, a[N], l[3][N], r[3][N];
-vector<int> pos[3];
+const int N = 3e5 + 5;
+int n, m, k, a[N], g[N];
+ll f[N], s[N];
 
-void finish(vector<int> a, int t) {
-    // t = 0: abba   -> a = ba
-    // t = 1: abbba  -> a = bba
-    int p = sz(a) * 2 - t;
-    if (p >= n / 2) {
-        FOD(i, sz(a) - 1, 0) cout << char(a[i] + 'a');
-        FOR(i, t, sz(a) - 1) cout << char(a[i] + 'a');
-        cout << endl;
-        exit(0);
-    }
-}
-
-void expand(int u, int v, int i, int j, int t) {
-    vector<int> res;
-    res.push_back(u);
-    while (i != -1 && j != -1) {
-        if (l[v][i] > l[u][i] && r[v][j] < r[u][j]) {
-            i = l[v][i];
-            j = r[v][j];
-            if (i != -1 && j != -1)
-                res.push_back(v);
+ll calc(int l, int m, int r, int k) {
+    int i = m, j = m;
+    ll res = (ll)a[m];
+    while (j - i + 1 < k) {
+        if (i == l)
+            res += a[++j];
+        else if (j == r)
+            res += a[--i];
+        else if (a[i - 1] > a[j + 1]) {
+            res += a[--i];
         } else {
-            i = l[u][i];
-            j = r[u][j];
-            if (i != -1 && j != -1)
-                res.push_back(u);
+            res += a[++j];
         }
-    };
-    finish(res, t);
+    }
+    return res;
 }
 
-void test(int u, int v) {
-    int m = sz(pos[u]);
-    if (m == 0)
-        return;
-    // 1 4 6 8 9, m = 5
-    int c = pos[u][m / 2];
-    expand(u, v, c, c, 1);
-    if (m / 2 - 1 >= 0) {
-        expand(u, v, pos[u][m / 2 - 1], c, 0);
-    }
-    if (m / 2 + 1 < m) {
-        expand(u, v, c, pos[u][m / 2 + 1], 0);
-    }
+ll sum(int l, int r, int k) {
+    if (r - l + 1 < k)
+        return 0ll;
+    if (r - l + 1 == k)
+        return f[r] - f[l - 1];
+    int m = (l + r) >> 1;
+    return max(max(sum(l, m - 1, k), sum(m + 1, r, k)), calc(l, m, r, k));
 }
 
 int main() {
 
-    string s;
-    getline(cin, s);
-    n = sz(s);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n >> m >> k;
+        FOR(i, 1, n) cin >> a[i];
 
-    FOR(i, 1, n) {
-        a[i] = s[i - 1] - 'a';
-        pos[a[i]].push_back(i);
-    }
+        f[0] = 0ll;
+        FOR(i, 1, n) f[i] = f[i - 1] + a[i];
 
-    FOR(j, 0, 2) {
-        int p = -1;
-        FOR(i, 1, n) {
-            l[j][i] = p;
-            if (a[i] == j)
-                p = i;
+        ll res = 0ll;
+
+        FOR(l, 1, n) {
+            ll t = sum(1, n, l);
+            res = max(res, t - k * (int)ceil(l * 1.0 / m));
         }
-        p = -1;
-        FOD(i, n, 1) {
-            r[j][i] = p;
-            if (a[i] == j)
-                p = i;
-        }
-    }
 
-    FOR(i, 0, 2) FOR(j, i + 1, 2) {
-        test(i, j);
-        test(j, i);
+        cout << res << endl;
+        // cout << endl;
     }
-
-    puts("IMPOSSIBLE");
 
     return 0;
 }
