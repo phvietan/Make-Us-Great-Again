@@ -1,0 +1,32 @@
+body {background-color:#fffff2; color:#000000; font-size:16px; line-height:1.2;}
+h1 {font-size:110%; font-weight:bold; font-family:Arial,Helvetica,sans-serif; color:#000080; background-color:#fffff2; text-align:center;}
+h2 {font-size:140%; font-family:Arial,Helvetica,sans-serif; color:#000080; background-color:#fffff2; text-align:center;}
+h3 {font-size:100%; font-family:Arial,Helvetica,sans-serif; color:#000080; background-color:#fffff2; text-align:left;}
+h3.c {font-family:Arial,Helvetica,sans-serif; color:#000080; background-color:#fffff2; text-align:center;}
+th {font-size:100%; font-weight:bold; font-family:Arial,Helvetica,sans-serif; color:#fffff2; background-color:#000080; text-align:left;}
+td.big {font-size:200%;}
+span.b {font-size:140%;}
+span.bs {font-size:140%; font-family:"Times New Roman",Times,serif;}
+span.bss {font-size:140%; font-family:sans-serif;}
+hr {color:#000080; background-color:#000080; height:2px; border-style:none;}
+table.bord {border-collapse:collapse; border:1px solid #000080;}
+table.bord th {border:1px solid #fffff2; text-align:center;}
+table.bord td {border:1px solid #000080;}
+table.bord h3 {margin-bottom:0;}
+table.nav, table.navset {border-collapse:collapse; border:1px solid #999999; color:#000080; background-color:#ffff99; text-align:center;}
+table.nav td {border:1px solid #999999; padding-left:12px; padding-right:12px; padding-top:3px; padding-bottom:3px;}
+a.nav:link {text-decoration:none; color:#000080; background-color:#ffff99;}
+a.nav:visited {text-decoration:none; color:#000080; background-color:#ffff99;}
+a.nav:active {text-decoration:none; color:#000080; background-color:#ffff99;}
+a.nav:hover {text-decoration:underline; color:#0000ff; background-color:#ffff99;}
+a.nav {font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif; font-size:70%; font-weight:bold;}
+a.cont {font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif; font-size:70%; font-weight:bold;}
+a.cont:link {text-decoration:none; color:#000080;}
+a.cont:visited {text-decoration:none; color:#000080;}
+a.cont:active {text-decoration:none; color:#000080;}
+a.cont:hover {text-decoration:underline; color:#0000ff;}
+span.contg {font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif; color:#999999; font-size:70%; font-weight:bold;}
+a.h {color:#000099; background-color:#fffff2; text-decoration:none;}
+a.h:hover {color:#000099; background-color:#fffff2; text-decoration:none;}
+li.note {list-style-type:none; font-size:85%;}
+img {border:0;}

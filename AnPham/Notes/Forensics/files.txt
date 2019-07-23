@@ -1,0 +1,4 @@
+1) steghide
+2) If memory dump file, load it with ida, or volitality
+3) file <filename> to determine filetype
+4) binwalk, foremost
