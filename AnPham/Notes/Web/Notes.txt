@@ -1,0 +1,36 @@
+File uploading:
+    _ Upload php file.
+    _ And files that is found by metasploit
+
+Port scanning:
+    _ nmap -A -Pn <target>
+
+SMB:
+    _ smbmap:
+        * smbmap -H <host ip> -u <user> -p <password>
+        * smbmap --help for more info
+
+Check can do any request by OPTIONS
+
+Steps:
+    0) nslookup, whois,
+    1) nmap
+    2) dirb
+    3) Bruteforce request
+
+SMB-related:
+    0) smbmap (have never done this)
+
+DNS-related: when use nmap scan and see DNS port is up
+    dig <website>
+    nslookup <website>
+    whois <website>
+    check and change: /etc/resolv.conf
+
+Inside machine:
+    0) hostname, whoami, ifconfig, ip addr, pwd, ls, cd around
+    1) wget from other resources
+        _ Maybe use ng-rok, AWS, port forwarding and setup.
+    2) linEnum, reverse-shell
+
+seclists always on your side

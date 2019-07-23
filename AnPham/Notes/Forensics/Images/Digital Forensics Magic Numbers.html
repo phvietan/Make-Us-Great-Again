@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://asecuritysite.com/forensics/magic -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="https://asecuritysite.com/favicon.ico" type="image/x-icon">
+
+
+    <title>Digital Forensics Magic Numbers</title>
+         <script src="./Digital Forensics Magic Numbers_files/jquery.min.js" type="text/javascript"></script>
+            <link href="./Digital Forensics Magic Numbers_files/bootstrap.min.css" rel="stylesheet" media="screen">
+ 
+<script type="text/javascript" src="./Digital Forensics Magic Numbers_files/MathJax.js">
+</script>
+
+
+
+            <script src="./Digital Forensics Magic Numbers_files/bootstrap.min.js" type="text/javascript"></script>
+    
+     <script src="./Digital Forensics Magic Numbers_files/MicrosoftAjax.debug.js" type="text/javascript"></script>  
+
+      
+
+     <link href="./Digital Forensics Magic Numbers_files/Site.css" rel="stylesheet" type="text/css"> 
+    <link href="./Digital Forensics Magic Numbers_files/1.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body style=""><div id="MathJax_Message" style="display: none;"></div>
+    
+    <script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+
+
+    <div class="w3-container">
+
+        <div id="header" class="row">
+            <div id="title"></div>
+            <div id="logindisplay">
+                
+
+
+
+    [ <a href="https://asecuritysite.com/account/logon">Log On</a> ]
+
+
+
+
+
+
+
+          
+
+
+
+            </div>
+
+            <div id="tabs_container">
+
+
+            <div class="invertedshiftdown">
+                <ul>
+                    <li><a href="https://asecuritysite.com/">Home</a></li>
+                    <li><a href="https://asecuritysite.com/tests">Tst</a></li>
+                    <li><a href="https://asecuritysite.com/challenges">Cha</a></li>
+                   <li><a href="https://asecuritysite.com/encryption">Enc</a></li>
+                   <li><a href="https://asecuritysite.com/coding">Code</a></li>
+                   <li><a href="https://asecuritysite.com/ip">IP</a></li>
+                  
+                    <li><a href="https://asecuritysite.com/fun">Fun</a></li>
+                    <li><a href="https://asecuritysite.com/information">Sub</a></li>
+                  
+                   <li class="current"><a href="https://asecuritysite.com/forensics">DigF</a></li>
+                     <li><a href="https://asecuritysite.com/Cisco">Cis</a></li>
+                        <li><a href="https://asecuritysite.com/comms">Com</a></li>
+                
+                        <li><a href="https://asecuritysite.com/database1">Db</a></li>
+                
+                  <li><a href="https://asecuritysite.com/Home/About">About</a></li>
+                        <li><a href="https://asecuritysite.com/networksims">Netsim</a></li>
+                  
+               
+                </ul>
+            </div>
+        </div>
+            <p></p>
+        <div id="main" class="row">
+
+            
+
+<table width="100%" border="1" cellpadding="0" cellspacing="0"> 
+<tbody><tr><td valign="top">
+<h1 id="logo">Digital Investigation</h1>
+<p>[<a href="https://asecuritysite.com/forensics">Back</a>] These pages outlines some digital forensics examples showing the magic number which identifies the file:</p>
+     <table width="100%" border="1" cellspacing="0" cellpadding="0">
+  
+  <tbody><tr>
+    <td bgcolor="#CCCCCC"><strong>Description</strong></td>
+    <td bgcolor="#CCCCCC"><strong>Extension</strong></td>
+    <td bgcolor="#CCCCCC"><strong>Magic Number</strong></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>Adobe Illustrator</strong></td>
+    <td>.ai</td>
+    <td><a href="https://asecuritysite.com/forensics/ai">25 50 44 46 [%PDF]</a></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>Bitmap graphic</strong></td>
+    <td>.bmp</td>
+    <td><a href="https://asecuritysite.com/forensics/bmp">42 4D [BM]</a></td>
+  </tr>
+          <tr>
+    <td bgcolor="#CCCCCC"><strong>Class File</strong></td>
+    <td>.class</td>
+    <td><a href="https://asecuritysite.com/forensics/cls">CA FE BA BE</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>JPEG graphic file</strong></td>
+    <td>.jpg</td>
+    <td><a href="https://asecuritysite.com/forensics/jpeg">FFD8</a></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>JPEG 2000 graphic file</strong></td>
+    <td>.jp2</td>
+    <td><a href="https://asecuritysite.com/forensics/jp2">0000000C6A5020200D0A [....jP..]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>GIF graphic file</strong></td>
+    <td>.gif</td>
+    <td><a href="https://asecuritysite.com/forensics/gif">47 49 46 38 [GIF89]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>TIF graphic file</strong></td>
+    <td>.tif</td>
+    <td><a href="https://asecuritysite.com/forensics/tif">49 49 [II]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>PNG graphic file</strong></td>
+    <td>.png</td>
+    <td><a href="https://asecuritysite.com/forensics/png">89 50 4E 47 .PNG</a></td>
+  </tr>
+
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Photoshop Graphics</strong></td>
+    <td>.psd</td>
+    <td><a href="https://asecuritysite.com/forensics/psd">38 42 50 53 [8BPS]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Windows Meta File</strong></td>
+    <td>.wmf</td>
+    <td><a href="https://asecuritysite.com/forensics/wmf">D7 CD C6 9A</a></td>
+  </tr>
+
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>MIDI file</strong></td>
+    <td>.mid</td>
+    <td><a href="https://asecuritysite.com/forensics/mid">4D 54 68 64 [MThd]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Icon file</strong></td>
+    <td>.ico</td>
+    <td><a href="https://asecuritysite.com/forensics/ico">00 00 01 00</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>MP3 file with ID3 identity tag</strong></td>
+    <td>.mp3</td>
+    <td><a href="https://asecuritysite.com/forensics/mp3">49 44 33 [ID3]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>AVI video file</strong></td>
+    <td>.avi</td>
+    <td><a href="https://asecuritysite.com/forensics/avi">52 49 46 46 [RIFF]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Flash Shockwave</strong></td>
+    <td>.swf</td>
+    <td><a href="https://asecuritysite.com/forensics/swf">46 57 53 [FWS]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Flash Video</strong></td>
+    <td>.flv</td>
+    <td><a href="https://asecuritysite.com/forensics/flv">46 4C 56 [FLV]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Mpeg 4 video file</strong></td>
+    <td>.mp4</td>
+    <td><a href="https://asecuritysite.com/forensics/mp4">00 00 00 18 66 74 79 70 6D 70 34 32 [....ftypmp42]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>MOV video file</strong></td>
+    <td>.mov</td>
+    <td><a href="https://asecuritysite.com/forensics/mov">6D 6F 6F 76 [....moov]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Windows Video file</strong></td>
+    <td>.wmv</td>
+    <td><a href="https://asecuritysite.com/forensics/wmv">30 26 B2 75 8E 66 CF</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Windows Audio file</strong></td>
+    <td>.wma</td>
+    <td><a href="https://asecuritysite.com/forensics/wma">30 26 B2 75 8E 66 CF</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>PKZip</strong></td>
+    <td>.zip</td>
+    <td><a href="https://asecuritysite.com/forensics/zip">50 4B 03 04 [PK]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>GZip</strong></td>
+    <td>.gz</td>
+    <td><a href="https://asecuritysite.com/forensics/gz">1F 8B 08</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Tar file</strong></td>
+    <td>.tar</td>
+    <td><a href="https://asecuritysite.com/forensics/tar">75 73 74 61 72</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Microsoft Installer</strong></td>
+    <td>.msi</td>
+    <td><a href="https://asecuritysite.com/forensics/msi">D0 CF 11 E0 A1 B1 1A E1</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Object Code File</strong></td>
+    <td>.obj</td>
+    <td><a href="https://asecuritysite.com/forensics/obj">4C 01</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Dynamic Library</strong></td>
+    <td>.dll</td>
+    <td><a href="https://asecuritysite.com/forensics/dll">4D 5A [MZ]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>CAB Installer file</strong></td>
+    <td>.cab</td>
+    <td><a href="https://asecuritysite.com/forensics/cab">4D 53 43 46 [MSCF]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Executable file</strong></td>
+    <td>.exe</td>
+    <td><a href="https://asecuritysite.com/forensics/exe">4D 5A [MZ]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>RAR file</strong></td>
+    <td>.rar</td>
+    <td><a href="https://asecuritysite.com/forensics/rar">52 61 72 21 1A 07 00 [Rar!...]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>SYS file</strong></td>
+    <td>.sys</td>
+    <td><a href="https://asecuritysite.com/forensics/sys">4D 5A [MZ]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Help file</strong></td>
+    <td>.hlp</td>
+    <td><a href="https://asecuritysite.com/forensics/hlp">3F 5F 03 00 [?_..]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>VMWare Disk file</strong></td>
+    <td>.vmdk</td>
+    <td><a href="https://asecuritysite.com/forensics/vm">4B 44 4D 56 [KDMV]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Outlook Post Office file</strong></td>
+    <td>.pst</td>
+    <td><a href="https://asecuritysite.com/forensics/pst">21 42 44 4E 42 [!BDNB]</a></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>PDF Document</strong></td>
+    <td>.pdf</td>
+    <td><a href="https://asecuritysite.com/forensics/pdf">25 50 44 46 [%PDF]</a></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>Word Document</strong></td>
+    <td>.doc</td>
+    <td><a href="https://asecuritysite.com/forensics/doc">D0 CF 11 E0 A1 B1 1A E1</a></td>
+  </tr>
+      <tr>
+    <td bgcolor="#CCCCCC"><strong>RTF Document</strong></td>
+    <td>.rtf</td>
+    <td><a href="https://asecuritysite.com/forensics/rtf">7B 5C 72 74 66 31 [{
+tf1]</a></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>Excel Document</strong></td>
+    <td>.xls</td>
+    <td><a href="https://asecuritysite.com/forensics/xls">D0 CF 11 E0 A1 B1 1A E1</a></td>
+  </tr>
+      <tr>
+    <td bgcolor="#CCCCCC"><strong>PowerPoint Document</strong></td>
+    <td>.ppt</td>
+    <td><a href="https://asecuritysite.com/forensics/ppt">D0 CF 11 E0 A1 B1 1A E1</a></td>
+  </tr>
+        <tr>
+    <td bgcolor="#CCCCCC"><strong>Visio Document</strong></td>
+    <td>.vsd</td>
+    <td><a href="https://asecuritysite.com/forensics/vsd">D0 CF 11 E0 A1 B1 1A E1</a></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>DOCX (Office 2010)</strong></td>
+    <td>.docx</td>
+    <td><a href="https://asecuritysite.com/forensics/docx">50 4B 03 04 [PK]</a></td>
+  </tr>
+      <tr>
+    <td bgcolor="#CCCCCC"><strong>XLSX (Office 2010)</strong></td>
+    <td>.xlsx</td>
+    <td><a href="https://asecuritysite.com/forensics/xlsx">50 4B 03 04 [PK]</a></td>
+  </tr>
+        <tr>
+    <td bgcolor="#CCCCCC"><strong>PPTX (Office 2010)</strong></td>
+    <td>.pptx</td>
+    <td><a href="https://asecuritysite.com/forensics/pptx">50 4B 03 04 [PK]</a></td>
+  </tr>
+          <tr>
+    <td bgcolor="#CCCCCC"><strong>Microsoft Database</strong></td>
+    <td>.mdb</td>
+    <td><a href="https://asecuritysite.com/forensics/mdb">53 74 61 6E 64 61 72 64 20 4A 65 74</a></td>
+  </tr>
+            <tr>
+    <td bgcolor="#CCCCCC"><strong>Postcript File</strong></td>
+    <td>.ps</td>
+    <td><a href="https://asecuritysite.com/forensics/ps">25 21 [%!]</a></td>
+  </tr>            
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Outlook Message File</strong></td>
+    <td>.msg</td>
+    <td><a href="https://asecuritysite.com/forensics/msg">D0 CF 11 E0 A1 B1 1A E1</a></td>
+  </tr>
+  <tr>
+      <td bgcolor="#CCCCCC"><strong>EPS File</strong></td>
+    <td>.eps</td>
+    <td><a href="https://asecuritysite.com/forensics/eps">25 21 50 53 2D 41 64 6F 62 65 2D 33 2E 30 20 45 50 53 46 2D 33 20 30</a></td>
+  </tr>
+    <tr>
+    <td bgcolor="#CCCCCC"><strong>Jar File</strong></td>
+    <td>.jar</td>
+    <td><a href="https://asecuritysite.com/forensics/jar">50 4B 03 04 14 00 08 00 08 00</a></td>
+  </tr>
+      <tr>
+    <td bgcolor="#CCCCCC"><strong>SLN File</strong></td>
+    <td>.sln</td>
+    <td><a href="https://asecuritysite.com/forensics/sln">4D 69 63 72 6F 73 6F 66 74 20 56 69 73 75 61 6C 20 53 74 75 64 69 6F 20 53 6F 6C 75 74 69 6F 6E 20 46 69 6C 65</a></td>
+  </tr>
+               <tr>
+    <td bgcolor="#CCCCCC"><strong>Zlib File</strong></td>
+    <td>.zlib</td>
+    <td><a href="https://asecuritysite.com/forensics/zlib">78 9C</a></td>
+  </tr>
+                        <tr>
+    <td bgcolor="#CCCCCC"><strong>SDF File</strong></td>
+    <td>.sdf</td>
+    <td><a href="https://asecuritysite.com/forensics/sdf">78 9C</a></td>
+  </tr>
+
+</tbody></table>
+      
+
+       
+
+</td></tr>
+</tbody></table>
+<p>The following are network traces with file types contained in them:</p>
+<ul>
+    <li><b>PDF</b>. For this use a filter of <b>http contains "%PDF"</b> or <b>http contains "\x25\x50\x44\x46"</b>: <a href="https://asecuritysite.com/log/with_pdf.zip">Here</a></li>
+    <li><b>GIF</b>. For this use a filter of <b>http contains "GIF89a"</b> or <b>http contains "\x47\x49\x46\x38"</b>: <a href="https://asecuritysite.com/log/with_gif.zip">Here</a></li>
+    <li><b>PNG</b>. For this use a filter of <b>http contains "\x89\x50\x4E\x47"</b>: <a href="https://asecuritysite.com/log/with_png.zip">Here</a></li>
+    <li><b>MIME</b>. For this use a filter of <b>smtp contains "/9j/4AAQSkZJRgA"</b>: <a href="https://asecuritysite.com/log/email_two_attachments.zip">Here</a></li>
+   <li><b>SMTP Trace with email number</b>. For this use a filter of <b>smtp matches "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._%+-]"</b>: <a href="https://asecuritysite.com/log/email_cc2.zip">Here</a></li>
+   <li><b>SMTP Trace with credit card number </b>. To detect Visa credit card number, use a filter of <b>smtp matches "5\\d{3}(\\s|-)?\\d{4}(\\s|-)?\\d{4}(\\s|-)?\\d{4}"</b>: <a href="https://asecuritysite.com/log/email_cc2.zip">Here</a></li>
+  
+     
+</ul>
+
+        </div>
+
+  <!-- end post-entry -->
+        </div>
+
+ </div>
+   
+
+
+</body></html>

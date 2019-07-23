@@ -1,0 +1,10 @@
+Stream cipher - one time pad
+https://md5hashing.net/hash
+Decrypt, encrypt:
+  Bacon
+  Caesar cipher
+  Substitute
+  ROT13
+Base64 conversions.
+
+Substitution Cipher decrypt web: https://quipqiup.com
