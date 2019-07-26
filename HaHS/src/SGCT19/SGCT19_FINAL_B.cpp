@@ -1,3 +1,20 @@
+/**
+ * Difficulty   : medium
+ * Problem tags : dp, binary search, two points
+ *
+ * Tutorial: tính sẵn s(i) là sum từ 1->i, khi đó dãy s tăng dần
+ * Tại mỗi vị trí j, gọi f(j) là số cách chia kết thúc tại j, khi đó j nằm trong
+ * sub-array cuối cùng có sum từ L -> R. Vậy cần tìm các vị trí i <= j sao cho
+ * sum(i,j) thuộc L,R Nhận thấy s tăng dần nên có thể chặt nhị phân để tìm 2 vị
+ * trí biên này. Khi đó giả sử 2 vị trí biên là i1, i2 với i1 <= i2 <= j.
+ *
+ * Khi đó f(j) = sum ( f[i1-1]. ... f[i2-1] )
+ * Lưu lại các giá trị sum này bằng prefix sum như s(). Gọi q(i) là sum của
+ * f(1..i), khi đó có thể tính f(j) bằng q(i2-1)-q(i1-2)
+ *
+ * Có thể sử dụng two points để giảm độ phức tạp xuống O(n) và giảm space
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
