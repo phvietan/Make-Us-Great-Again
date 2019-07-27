@@ -1,0 +1,45 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-27 08:24 PDT
+NSE: Loaded 10 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 08:24
+Completed NSE at 08:24, 0.00s elapsed
+Initiating Ping Scan at 08:24
+Scanning 10.10.10.40 [4 ports]
+Completed Ping Scan at 08:24, 0.24s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 08:24
+Scanning blue.htb (10.10.10.40) [1 port]
+Discovered open port 445/tcp on 10.10.10.40
+Completed SYN Stealth Scan at 08:24, 0.24s elapsed (1 total ports)
+NSE: Script scanning 10.10.10.40.
+Initiating NSE at 08:24
+Completed NSE at 08:25, 13.63s elapsed
+Nmap scan report for blue.htb (10.10.10.40)
+Host is up (0.21s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Host script results:
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: NT_STATUS_OBJECT_NAME_NOT_FOUND
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+
+NSE: Script Post-scanning.
+Initiating NSE at 08:25
+Completed NSE at 08:25, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 14.45 seconds
+           Raw packets sent: 5 (196B) | Rcvd: 41 (1.636KB)
