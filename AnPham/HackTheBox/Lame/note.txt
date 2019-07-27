@@ -1,0 +1,31 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-24 13:27 PDT
+Nmap scan report for 10.10.10.3
+Host is up (0.22s latency).
+Not shown: 996 filtered ports
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+139 and 445 is port of SMB protocol.
+
+Multiple Ways to Exploit SMB
+  Eternal Blue
+  SMB login via Brute Force
+  PSexec to connect SMB
+  Rundll32 One-liner to Exploit SMB
+  SMB Exploit via NTLM Capture
+
+Article: https://www.hackingarticles.in/smb-penetration-testing-port-445/
+
+nmap -p 445 -A 10.10.10.3
+
+TRACEROUTE (using port 445/tcp)
+HOP RTT       ADDRESS
+1   211.63 ms 10.10.14.1
+2   212.03 ms 10.10.10.3
+
+Use msfconsole and search for script to exploit samba
+
+Owned root + user
