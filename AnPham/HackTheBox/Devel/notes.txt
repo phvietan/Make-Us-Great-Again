@@ -28,7 +28,6 @@ in Metasploit:
 
   To go back to background meterpreter: sessions -i <session_id>
 
-
 Inside machine:
   Windows:
     systeminfo
