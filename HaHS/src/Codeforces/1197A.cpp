@@ -1,3 +1,10 @@
+/**
+ * http://codeforces.com/contest/1197/problem/A
+ *
+ * Difficulty   : easy
+ * Problem tags : math, greedy
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -18,7 +25,27 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
+const int N = 1e5 + 5;
+int n, a[N];
+
+void solve() {
+    cin >> n;
+    FOR(i, 1, n) cin >> a[i];
+
+    sort(a + 1, a + n + 1);
+    int h = a[n - 1];
+    int k = min(n - 2, h - 1);
+
+    cout << k << endl;
+}
+
 int main() {
+
+    int T;
+    cin >> T;
+    while (T--) {
+        solve();
+    }
 
     return 0;
 }
