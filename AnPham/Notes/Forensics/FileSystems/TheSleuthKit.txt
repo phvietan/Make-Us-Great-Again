@@ -1,0 +1,6 @@
+img_stat = image stat
+fsstat = file system stat
+fls = file ls
+istat = inode metadata: istat <imgfile> <entry number>
+icat = cat the content: icat <imgfile> <entry number>
+tsk_recover <imgfile> <dir> to recover deleted file from the imgfile

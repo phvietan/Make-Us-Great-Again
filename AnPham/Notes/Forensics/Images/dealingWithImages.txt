@@ -1,0 +1,15 @@
+The flag may be founded by:
+  1) Check color of the image - using <xyz not known> or gamma with imagemagick
+    + If it is same color in every pixel, try to use imagemagick to make a picture with that color and differentiate with imagemagick "compare"
+  2) By cropping, rotating, pasting different region of image - using PIL of python
+  3) Hidden file/folder in an image - use hex dump to determine the end of the image.
+    + If png use od -> iend trunk at the end.
+    + If jpg use hexdump xxd -> FF D9 or xxd which is d9ff (because big and little endian)
+    + Find the magic number of rar, or zip, or things: ./Digital Forensics Magic Numbers.html
+    + Then use dd: dd if="input file" of="output file" skip="check the place where magic number occur" bs=1 (blocksize)
+  4) Stegosaurus
+  5) http://stylesuxx.github.io/steganography/
+  6) https://www.dfir.training/tools/cryptography/steganography
+  
+  7) convert input.file -gamma <Value> output.file
+  8) convert input.file -splice something...

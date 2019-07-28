@@ -1,0 +1,40 @@
+$ nmap -A 10.10.10.6 --verbose
+
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-24 21:13 PDT
+Initiating Ping Scan at 21:13
+Scanning 10.10.10.6 [4 ports]
+Completed Ping Scan at 21:13, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 21:13
+Completed Parallel DNS resolution of 1 host. at 21:13, 13.00s elapsed
+Initiating SYN Stealth Scan at 21:13
+Scanning 10.10.10.6 [1000 ports]
+Discovered open port 80/tcp on 10.10.10.6
+Discovered open port 22/tcp on 10.10.10.6
+Completed SYN Stealth Scan at 21:14, 10.46s elapsed (1000 total ports)
+Nmap scan report for 10.10.10.6
+Host is up (0.22s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 5.1p1 Debian 6ubuntu2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   1024 3e:c8:1b:15:21:15:50:ec:6e:63:bc:c5:6b:80:7b:38 (DSA)
+|_  2048 aa:1f:79:21:b8:42:f4:8a:38:bd:b8:05:ef:1a:07:4d (RSA)
+80/tcp open  http    Apache httpd 2.2.12 ((Ubuntu))
+| http-methods:
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.2.12 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+
+--------------------------------------------------------------
+
+Remember to check virtual host routing by changing host name in burp
+
+Checking using dirbuster: have /torrent/ that looks suspicious
+
+Checking the /torrent that see upload function look suspicious
+
+Login and try upload some torrent file, there is another feature to upload picture of torrent
+
+Try to upload reverse shell, works => login as www-data user => own user
+
+--------------------------------------------------------------
