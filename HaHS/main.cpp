@@ -18,7 +18,4 @@ typedef unsigned long long ull;
     cin.tie(NULL);                                                             \
     cout.tie(NULL);
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }
