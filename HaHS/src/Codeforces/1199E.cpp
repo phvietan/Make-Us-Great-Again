@@ -1,3 +1,19 @@
+/**
+ * http://codeforces.com/contest/1199/problem/E
+ *
+ * Difficulty   : medium
+ * Problem tags : dp, recursive
+ *
+ * Tutorial: Giới hạn kích thước nhỏ, gọi f[u][l][b][r] là chi phí min để clear
+ * toàn bộ vùng từ góc trái trên (u,l) đến góc trai dưới (b,r), tức từ hàng u->,
+ * từ cột l->r
+ *
+ * Kết quả là f[1][1][n][n]
+ *
+ * Thực hiện đệ quy kết hợp qhđ lưu bảng để tinh các giá trị này trong O(N^4)
+ *
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
