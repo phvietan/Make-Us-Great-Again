@@ -3,6 +3,7 @@
 using namespace std;
 
 typedef long long ll;
+typedef vector<int> vi;
 typedef pair<int, int> ii;
 
 #define EL printf("\n")

@@ -3,6 +3,7 @@
 using namespace std;
 
 typedef long long ll;
+typedef vector<int> vi;
 typedef pair<int, int> ii;
 
 #define EL printf("\n")
@@ -10,50 +11,50 @@ typedef pair<int, int> ii;
 #define FOR(i, l, r) for (int i = l; i <= r; i++)
 #define FOD(i, r, l) for (int i = r; i >= l; i--)
 
-const int N = 55;
-int n, a[N][N], f[N][N][N][N];
+const int N = 5e5 + 5;
+int n, m, dd[N];
 
-void dp(int u, int l, int b, int r) {
-    if (u > b || l > r)
-        return;
-    if (f[u][l][b][r] > -1)
-        return;
-    if (u == b && l == r) {
-        f[u][l][b][r] = a[u][l];
-        return;
-    }
-    f[u][l][b][r] = max(b - u + 1, r - l + 1);
-    if (b - u > r - l) { // split u->i + i+1 -> b
-        FOR(i, u, b - 1) {
-            dp(u, l, i, r);
-            dp(i + 1, l, b, r);
-            f[u][l][b][r] =
-                min(f[u][l][b][r], f[u][l][i][r] + f[i + 1][l][b][r]);
-        }
-    } else { // split l->i + i+1 -> r
-        FOR(i, l, r - 1) {
-            dp(u, l, b, i);
-            dp(u, i + 1, b, r);
-            f[u][l][b][r] =
-                min(f[u][l][b][r], f[u][l][b][i] + f[u][i + 1][b][r]);
+void solve() {
+    cin >> n >> m;
+    FOR(i, 1, 3 * n) dd[i] = false;
+
+    vector<int> res;
+    FOR(i, 1, m) {
+        int u, v;
+        cin >> u >> v;
+        if (!dd[u] && !dd[v]) {
+            dd[u] = dd[v] = 1;
+            res.push_back(i);
         }
     }
+
+    if (res.size() >= n) {
+        cout << "Matching\n";
+        FOR(i, 0, n - 1) cout << res[i] << " ";
+    } else {
+        cout << "IndSet\n";
+        int cnt = 0;
+        for (int cnt = 0, i = 1; i <= 3 * n && cnt < n; i++) {
+            if (!dd[i]) {
+                cout << i << " ";
+                cnt++;
+            }
+        }
+    }
+
+    cout << endl;
 }
 
 int main() {
 
-    cin >> n;
-    FOR(i, 1, n) {
-        string s;
-        cin >> s;
-        FOR(j, 1, n) a[i][j] = s[j - 1] == '#';
-    }
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 
-    FOR(u, 1, n) FOR(l, 1, n) FOR(b, 1, n) FOR(r, 1, n) f[u][l][b][r] = -1;
+    int T;
+    cin >> T;
+    while (T--)
+        solve();
 
-    dp(1, 1, n, n);
-    cout << f[1][1][n][n];
-
-    EL;
     return 0;
 }
