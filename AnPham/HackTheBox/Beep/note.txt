@@ -1,0 +1,64 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-31 00:03 PDT
+Nmap scan report for 10.10.10.7
+Host is up (0.20s latency).
+Not shown: 988 closed ports
+PORT      STATE SERVICE    VERSION
+22/tcp    open  ssh        OpenSSH 4.3 (protocol 2.0)
+| ssh-hostkey:
+|   1024 ad:ee:5a:bb:69:37:fb:27:af:b8:30:72:a0:f9:6f:53 (DSA)
+|_  2048 bc:c6:73:59:13:a1:8a:4b:55:07:50:f6:65:1d:6d:0d (RSA)
+25/tcp    open  smtp       Postfix smtpd
+|_smtp-commands: beep.localdomain, PIPELINING, SIZE 10240000, VRFY, ETRN, ENHANCEDSTATUSCODES, 8BITMIME, DSN,
+80/tcp    open  http       Apache httpd 2.2.3
+|_http-server-header: Apache/2.2.3 (CentOS)
+|_http-title: Did not follow redirect to https://10.10.10.7/
+110/tcp   open  pop3       Cyrus pop3d 2.3.7-Invoca-RPM-2.3.7-7.el5_6.4
+|_pop3-capabilities: PIPELINING UIDL TOP IMPLEMENTATION(Cyrus POP3 server v2) EXPIRE(NEVER) AUTH-RESP-CODE RESP-CODES USER APOP STLS LOGIN-DELAY(0)
+111/tcp   open  rpcbind    2 (RPC #100000)
+| rpcinfo:
+|   program version   port/proto  service
+|   100000  2            111/tcp  rpcbind
+|   100000  2            111/udp  rpcbind
+|   100024  1            875/udp  status
+|_  100024  1            878/tcp  status
+143/tcp   open  imap       Cyrus imapd 2.3.7-Invoca-RPM-2.3.7-7.el5_6.4
+|_imap-capabilities: Completed OK LIST-SUBSCRIBED X-NETSCAPE URLAUTHA0001 QUOTA RENAME ATOMIC IDLE CONDSTORE LITERAL+ THREAD=REFERENCES ID SORT IMAP4 SORT=MODSEQ BINARY NAMESPACE ANNOTATEMORE NO CHILDREN IMAP4rev1 STARTTLS CATENATE MULTIAPPEND UNSELECT LISTEXT RIGHTS=kxte UIDPLUS ACL MAILBOX-REFERRALS THREAD=ORDEREDSUBJECT
+443/tcp   open  ssl/https?
+|_ssl-date: 2019-07-31T07:06:29+00:00; -13s from scanner time.
+993/tcp   open  ssl/imap   Cyrus imapd
+|_imap-capabilities: CAPABILITY
+995/tcp   open  pop3       Cyrus pop3d
+3306/tcp  open  mysql      MySQL (unauthorized)
+4445/tcp  open  upnotifyp?
+10000/tcp open  http       MiniServ 1.570 (Webmin httpd)
+|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.70%E=4%D=7/31%OT=22%CT=1%CU=35135%PV=Y%DS=2%DC=T%G=Y%TM=5D413EB
+OS:E%P=x86_64-pc-linux-gnu)SEQ(SP=CE%GCD=1%ISR=D3%TI=Z%CI=Z%TS=A)SEQ(SP=CE%
+OS:GCD=1%ISR=D3%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M54DST11NW7%O2=M54DST11NW7%O3=M5
+OS:4DNNT11NW7%O4=M54DST11NW7%O5=M54DST11NW7%O6=M54DST11)WIN(W1=16A0%W2=16A0
+OS:%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M54DNNSNW7%C
+OS:C=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=
+OS:16A0%S=O%A=S+%F=AS%O=M54DST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=
+OS:R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T
+OS:=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=
+OS:0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(
+OS:R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 2 hops
+Service Info: Hosts:  beep.localdomain, 127.0.0.1, example.com
+
+Host script results:
+|_clock-skew: mean: -13s, deviation: 0s, median: -13s
+
+TRACEROUTE (using port 23/tcp)
+HOP RTT       ADDRESS
+1   279.36 ms 10.10.14.1
+2   283.18 ms 10.10.10.7
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 388.91 seconds
+
+
+[+] 10.10.10.7:143        - 10.10.10.7:143 IMAP * OK [CAPABILITY IMAP4 IMAP4rev1 LITERAL+ ID STARTTLS] example.com Cyrus IMAP4 v2.3.7-Invoca-RPM-2.3.7-7.el5_6.4 server ready\x0d\x0a
