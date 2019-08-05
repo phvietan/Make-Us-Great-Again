@@ -22,3 +22,10 @@ Inside machine:
     2) linEnum, reverse-shell
 
 seclists always on your side
+
+ports:
+  53: DNS
+  139, 445: smb
+  110, 995: pop3: download email from server
+  143, 993: imap: view email from server
+  25, 2525, 465: SMTP: transfer email

