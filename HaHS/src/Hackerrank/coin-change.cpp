@@ -1,5 +1,5 @@
 /**
- * http://codeforces.com/contest/1110/problem/B
+ * https://www.hackerrank.com/challenges/coin-change/problem
  *
  * Difficulty   : dễ
  * Problem tags : dp

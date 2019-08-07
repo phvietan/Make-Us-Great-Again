@@ -1,3 +1,19 @@
+/**
+ * http://codeforces.com/contest/1199/problem/E
+ *
+ * Difficulty   : medium
+ * Problem tags : graph, greedy
+ *
+ * Tutorial: lần lượt ghép từng cạnh của đồ thị để tạo được một matching, nếu
+ * matching này có số cạnh < n thì số đỉnh trong matching <= 2*n
+ *
+ * ==> số đỉnh còn lại >= n, và các đỉnh còn lại không có cạnh nối chung, vì nếu
+ * có 2 đỉnh bất kì có cạnh nối chung thì khi đó có thể đưa 2 đỉnh này vào danh
+ * sách matching ở trên
+ *
+ * Do đó có thể sử dụng giải thuật tham lam này
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
