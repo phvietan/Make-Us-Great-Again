@@ -10,5 +10,3 @@ typedef pair<int, int> ii;
 #define sz(A) (int)A.size()
 #define FOR(i, l, r) for (int i = l; i <= r; i++)
 #define FOD(i, r, l) for (int i = r; i >= l; i--)
-
-int main() { return 0; }
