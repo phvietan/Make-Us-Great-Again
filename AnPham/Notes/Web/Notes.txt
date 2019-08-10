@@ -1,25 +1,13 @@
-File uploading:
-    _ Upload php file.
-    _ And files that is found by metasploit
-
-Port scanning:
-    _ nmap -A -Pn <target>
-
-SMB:
-    _ smbmap:
-        * smbmap -H <host ip> -u <user> -p <password>
-        * smbmap --help for more info
-
 Check can do any request by OPTIONS
 
 Steps:
     0) nslookup, whois,
-    1) nmap
-    2) dirb
+    1) nmap -> check the server version, check for: EternalBlue (windows smb), Heartbleed (ubuntu 12, ...)
+    2) dirbuster
     3) Bruteforce request
-
-SMB-related:
-    0) smbmap (have never done this)
+    4) wfuzz
+    5) download suspicious files and use steghide or something (for ctf-like)
+    6) beware of naming convention like: hype_key
 
 DNS-related: when use nmap scan and see DNS port is up
     dig <website>
@@ -34,3 +22,10 @@ Inside machine:
     2) linEnum, reverse-shell
 
 seclists always on your side
+
+ports:
+  53: DNS
+  139, 445: smb
+  110, 995: pop3: download email from server
+  143, 993: imap: view email from server
+  25, 2525, 465: SMTP: transfer email

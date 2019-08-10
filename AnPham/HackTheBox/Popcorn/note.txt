@@ -38,3 +38,5 @@ Login and try upload some torrent file, there is another feature to upload pictu
 Try to upload reverse shell, works => login as www-data user => own user
 
 --------------------------------------------------------------
+
+add ssh key to the www-data user, then exploitdb 14339.sh to get root

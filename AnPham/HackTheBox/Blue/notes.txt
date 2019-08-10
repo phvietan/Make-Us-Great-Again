@@ -1,0 +1,76 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-27 08:24 PDT
+Discovered open port 135/tcp on 10.10.10.40
+Discovered open port 445/tcp on 10.10.10.40
+Discovered open port 139/tcp on 10.10.10.40
+Discovered open port 49153/tcp on 10.10.10.40
+Discovered open port 49154/tcp on 10.10.10.40
+Discovered open port 49155/tcp on 10.10.10.40
+Discovered open port 49157/tcp on 10.10.10.40
+Discovered open port 49156/tcp on 10.10.10.40
+Increasing send delay for 10.10.10.40 from 0 to 5 due to 113 out of 375 dropped probes since last increase.
+Discovered open port 49152/tcp on 10.10.10.40
+Completed SYN Stealth Scan at 08:25, 29.08s elapsed (1000 total ports)
+Initiating Service scan at 08:25
+Scanning 9 services on blue.htb (10.10.10.40)
+Service scan Timing: About 44.44% done; ETC: 08:27 (0:01:11 remaining)
+Completed Service scan at 08:26, 61.84s elapsed (9 services on 1 host)
+Initiating Traceroute at 08:26
+Completed Traceroute at 08:26, 0.21s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 08:26
+Completed Parallel DNS resolution of 2 hosts. at 08:26, 13.00s elapsed
+NSE: Script scanning 10.10.10.40.
+Initiating NSE at 08:26
+Completed NSE at 08:26, 12.95s elapsed
+Initiating NSE at 08:26
+Completed NSE at 08:26, 0.00s elapsed
+Nmap scan report for blue.htb (10.10.10.40)
+Host is up (0.20s latency).
+Not shown: 991 closed ports
+PORT      STATE SERVICE      VERSION
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+49152/tcp open  msrpc        Microsoft Windows RPC
+49153/tcp open  msrpc        Microsoft Windows RPC
+49154/tcp open  msrpc        Microsoft Windows RPC
+49155/tcp open  msrpc        Microsoft Windows RPC
+49156/tcp open  msrpc        Microsoft Windows RPC
+49157/tcp open  msrpc        Microsoft Windows RPC
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+
+Uptime guess: 0.002 days (since Sat Jul 27 08:24:13 2019)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 10h29m42s, deviation: 34m36s, median: 10h49m40s
+| smb-os-discovery:
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: haris-PC
+|   NetBIOS computer name: HARIS-PC\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2019-07-28T03:16:24+01:00
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2019-07-27 19:16:25
+|_  start_date: 2019-07-27 19:14:20
+
+NSE: Script Post-scanning.
+Initiating NSE at 08:26
+Completed NSE at 08:26, 0.00s elapsed
+Initiating NSE at 08:26
+Completed NSE at 08:26, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 129.98 seconds
+           Raw packets sent: 1870 (85.786KB) | Rcvd: 1243 (61.265KB)
