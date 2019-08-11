@@ -16,6 +16,8 @@
         "algorithm": "cpp",
         "tuple": "cpp",
         "ostream": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp"
     }
 }

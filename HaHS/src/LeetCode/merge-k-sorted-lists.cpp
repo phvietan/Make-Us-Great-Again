@@ -1,3 +1,10 @@
+/**
+ * https://leetcode.com/problems/merge-k-sorted-lists/
+ *
+ * Difficulty   : dễ
+ * Problem tags : implementation
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;
