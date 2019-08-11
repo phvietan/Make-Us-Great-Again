@@ -2,47 +2,17 @@
 
 using namespace std;
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
+typedef long long ll;
+typedef vector<int> vi;
+typedef pair<int, int> ii;
 
-class Solution {
-  public:
-    ListNode *mergeKLists(vector<ListNode *> &lists) {
-        int k = lists.size();
-        ListNode *head = 0;
-        ListNode *cur = 0;
-        for (;;) {
-            int idx = -1;
-            for (int i = 0; i < k; i++) {
-                ListNode *x = lists[i];
-                if (!x)
-                    continue;
-                if (idx == -1)
-                    idx = i;
-                else if (lists[idx]->val > x->val)
-                    idx = i;
-            }
-            if (idx == -1)
-                break;
-            ListNode *&t = lists[idx];
-            if (!head) {
-                head = new ListNode(t->val);
-                cur = head;
-            } else {
-                cur->next = new ListNode(t->val);
-                cur = cur->next;
-            }
-            t = t->next;
-        }
-        return head;
-    }
-};
+#define EL printf("\n")
+#define sz(A) (int)A.size()
+#define FOR(i, l, r) for (int i = l; i <= r; i++)
+#define FOD(i, r, l) for (int i = r; i >= l; i--)
+#define faster ios_base::sync_with_stdio(false) && cin.tie(NULL)
 
 int main() {
-    Solution sol;
 
     return 0;
 }

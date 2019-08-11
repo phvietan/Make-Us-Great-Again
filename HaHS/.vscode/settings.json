@@ -18,6 +18,7 @@
         "ostream": "cpp",
         "ios": "cpp",
         "string": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "numeric": "cpp"
     }
 }
