@@ -14,15 +14,15 @@ typedef pair<int, int> ii;
 
 // #define debug 1
 
-bool sortedArray(std::vector<int> a) {
-    int n = sz(a);
-    vi b(a);
-    sort(b.begin(), b.end());
-    int c = 0;
-    FOR(i, 0, n - 1) {
-        c += a[i] != b[i];
+int numberOfWays(int n, int a, int b, int c) {
+    a /= 2;
+    int res = 0;
+    FOR(i, 0, a) FOR(j, 0, c) {
+        int k = n - (i + j * 2);
+        if (k >= 0 && k <= b)
+            res++;
     }
-    return c <= 2;
+    return res;
 }
 
 #ifdef debug
