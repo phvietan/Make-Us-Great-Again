@@ -12,95 +12,88 @@ typedef pair<int, int> ii;
 #define FOD(i, r, l) for (int i = r; i >= l; i--)
 #define faster ios_base::sync_with_stdio(false) && cin.tie(NULL)
 
-#define debug 1
+// #define debug 1
 
-int n, res = 1e9, useA[15], useB[15];
-vector<ii> a, b;
+int n, a[10], x[10], y[10], z[10], T;
 
-int inputTime(stringstream &ss) {
-    int x = 0;
-    string s = "";
-    ss >> x >> s;
-    if (s == "AM") {
-        if (x == 12)
-            x = 0;
-    } else {
-        if (x < 12)
-            x += 12;
+bool dfs(int i) {
+    if (x[0] < 0 || y[0] < 0 || z[0] < 0) { // invalid case
+        return false;
     }
-    return x;
+    if (i > 1) { // check if last index is valid
+        if (x[i - 1] + y[i - 1] + z[i - 1] > T)
+            return false;
+    }
+    if (i == n + 1) { // final state
+        return true;
+    }
+    if (x[0] * 9 + y[0] * 3 + z[0] < a[0]) { // can't find the solution
+        return false;
+    }
+    int sum = a[i];
+    int nx = (sum + 8) / 9; // assign to x[i]
+    nx = min(nx, x[0]);
+    for (; nx >= 0; nx--) {
+        x[i] = nx;
+        x[0] -= x[i];
+        sum -= x[i] * 9;
+        int ny = (sum + 2) / 3; // assign to y[i]
+        if (sum <= 0)
+            ny = 0;
+        ny = min(ny, y[0]);
+        for (; ny >= 0; ny--) {
+            y[i] = ny;
+            y[0] -= y[i];
+            sum -= y[i] * 3;
+            z[i] = max(0, sum);
+            z[0] -= z[i];
+            a[0] -= a[i];
+            int ok = dfs(i + 1);
+            if (ok)
+                return true;
+            a[0] += a[i];
+            z[0] += z[i];
+            y[0] += y[i];
+            sum += y[i] * 3;
+        }
+        sum += x[i] * 9;
+        x[0] += x[i];
+    }
+    return false;
 }
 
-void init(vector<string> sa, vector<ii> &a) {
-    ii t;
-    string k;
-    for (string s : sa) {
-        stringstream ss(s);
-        t.first = inputTime(ss);
-        ss >> k;
-        t.second = inputTime(ss);
-        a.push_back(t);
-    }
-    // for (ii x : a) printf("%d %d\n", x.first, x.second);
-}
+int mutaliskAttack(std::vector<int> scvs) {
+    n = sz(scvs);
+    sort(scvs.begin(), scvs.end(), greater<int>());
+    FOR(i, 0, n - 1) a[i + 1] = scvs[i];
 
-int getTime(int x, int y) { // 0 <= x,y < 24
-    if (x <= y) {
-        int t = y - x;
-        return t >= 5 ? t : t + 24;
-    }
-    int t = 24 - x + y;
-    return t >= 5 ? t : t + 24;
-}
+    a[0] = 0;
+    FOR(i, 1, n) a[0] += a[i];
+    int minS = a[0] / 13;
 
-void solve(int idx, int cur, ii lastA, ii lastB) {
-    if (cur >= res)
-        return;
-    if (idx == n) {
-        res = cur;
-        return;
-    }
-    // printf("%d %d | %d %d\n", lastA.first, lastA.second, lastB.first,
-    // lastB.second);
-
-    FOR(i, 0, n - 1) FOR(j, 0, n - 1) {
-        if (!useA[i] && !useB[j]) {
-            useA[i] = useB[j] = 1;
-            ii curA = idx % 2 == 0 ? a[i] : b[j];
-            ii curB = idx % 2 == 0 ? b[j] : a[i];
-            int addt = 0;
-            if (idx) {
-                addt += getTime(lastA.second, curA.first);
-                addt += getTime(lastB.second, curB.first);
-                cur += addt;
-            }
-            solve(idx + 1, cur, curA, curB);
-            cur -= addt;
-            useA[i] = useB[j] = 0;
+    int l = minS, r = 41, res = 42;
+    while (l <= r) {
+        int m = (l + r) >> 1;
+        T = x[0] = y[0] = z[0] = m;
+        int ok = dfs(1);
+        if (ok) {
+            res = m;
+            r = m - 1;
+        } else {
+            l = m + 1;
         }
     }
-}
-
-int minimumLayover(vector<string> sa, vector<string> sb) {
-    n = sz(sa);
-    init(sa, a);
-    init(sb, b);
-    solve(0, 0, {}, {});
     return res;
 }
 
 #ifdef debug
 int main() {
-    // cout << minimumLayover(vector<string>({}), vector<string>({}));
 
-    // cout << minimumLayover(vector<string>({"6 AM - 8 AM", "8 AM - 10 AM"}),
-    //                        vector<string>({"9 AM - 11 AM", "7 PM - 9 PM"}));
-
-    cout << minimumLayover(
-        vector<string>({"1 AM - 3 AM", "4 AM - 6 AM", "11 AM - 1 PM",
-                        "2 PM - 4 PM", "8 PM - 10 PM", "8 PM - 11 PM"}),
-        vector<string>({"3 AM - 4 AM", "8 AM - 10 AM", "9 AM - 11 AM",
-                        "7 AM - 10 AM", "7 PM - 9 PM", "8 PM - 11 PM"}));
+    // mutaliskAttack(vi({54}));
+    // mutaliskAttack(vi({60, 60}));
+    // mutaliskAttack(vi({60, 60, 20}));
+    // mutaliskAttack(vi({44, 35, 12, 59, 47, 14, 31, 6, 22}));
+    mutaliskAttack(vi({60, 60, 60, 60, 60, 60, 60, 60, 60}));
 
     EL;
     return 0;
