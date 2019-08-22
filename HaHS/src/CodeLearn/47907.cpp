@@ -16,54 +16,28 @@ typedef pair<int, int> ii;
 
 int n, a[10], x[10], y[10], z[10], T;
 
-void handle(int &t, int &x, int &y, int &z) {
-    if (x >= y + z) {
-        t += x;
-        x = y = z = 0;
-    }
-}
-
-bool check_n_eq_2() {
-    int t = 0;
-    int u1 = x[1], u2 = y[1], u3 = z[1];
-    int v1 = x[2], v2 = y[2], v3 = z[2];
-    handle(t, u1, v2, v3);
-    handle(t, u2, v1, v3);
-    handle(t, u3, v2, v1);
-    handle(t, v1, u2, u3);
-    handle(t, v2, u2, u3);
-    handle(t, v3, u2, u1);
-    t += max(u1 + u2 + u3, v1 + v2 + v3);
-    return t <= T;
-}
-
 bool dfs(int i) {
-    if (x[0] < 0 || y[0] < 0 || z[0] < 0) {
+    if (x[0] < 0 || y[0] < 0 || z[0] < 0) { // invalid case
         return false;
     }
-    if (i == n + 1) {
-#ifdef debug
-        FOR(j, 1, n) printf("%d: %d_9 %d_3 %d_1\n", j, x[j], y[j], z[j]);
-#endif
-        if (n == 1) {
-            return x[1] + y[1] + z[1] <= T;
-        }
-        if (n == 2) {
-            return check_n_eq_2();
-        }
+    if (i > 1) { // check if last index is valid
+        if (x[i - 1] + y[i - 1] + z[i - 1] > T)
+            return false;
+    }
+    if (i == n + 1) { // final state
         return true;
     }
-    if (x[0] * 9 + y[0] * 3 + z[0] < a[0]) {
+    if (x[0] * 9 + y[0] * 3 + z[0] < a[0]) { // can't find the solution
         return false;
     }
     int sum = a[i];
-    int nx = (sum + 8) / 9;
+    int nx = (sum + 8) / 9; // assign to x[i]
     nx = min(nx, x[0]);
     for (; nx >= 0; nx--) {
         x[i] = nx;
         x[0] -= x[i];
         sum -= x[i] * 9;
-        int ny = (sum + 2) / 3;
+        int ny = (sum + 2) / 3; // assign to y[i]
         if (sum <= 0)
             ny = 0;
         ny = min(ny, y[0]);
@@ -88,38 +62,28 @@ bool dfs(int i) {
     return false;
 }
 
-bool ok(int t) {
-#ifdef debug
-    cout << t << endl;
-#endif
-    T = x[0] = y[0] = z[0] = t;
-    return dfs(1);
-}
-
-int solve() {
-    a[0] = 0;
-    FOR(i, 1, n) a[0] += a[i];
-    int minS = a[0] / 13;
-    int l = minS, r = 41, x = 42;
-    while (l <= r) {
-        int m = (l + r) >> 1;
-        if (ok(m)) {
-            x = m;
-            r = m - 1;
-        } else {
-            l = m + 1;
-        }
-    }
-    // cout << x << endl;
-    return x;
-}
-
 int mutaliskAttack(std::vector<int> scvs) {
     n = sz(scvs);
     sort(scvs.begin(), scvs.end(), greater<int>());
     FOR(i, 0, n - 1) a[i + 1] = scvs[i];
 
-    return solve();
+    a[0] = 0;
+    FOR(i, 1, n) a[0] += a[i];
+    int minS = a[0] / 13;
+
+    int l = minS, r = 41, res = 42;
+    while (l <= r) {
+        int m = (l + r) >> 1;
+        T = x[0] = y[0] = z[0] = m;
+        int ok = dfs(1);
+        if (ok) {
+            res = m;
+            r = m - 1;
+        } else {
+            l = m + 1;
+        }
+    }
+    return res;
 }
 
 #ifdef debug
