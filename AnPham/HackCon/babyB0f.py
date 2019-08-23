@@ -1,0 +1,1 @@
+print 'A'*10 + "\xef\xbe\xad\xde"

