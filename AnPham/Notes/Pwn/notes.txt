@@ -1,0 +1,6 @@
+To turn off flags:
+  ASLR: echo 0 > /proc/sys/kernel/randomize_va_space
+  NX: -z execstack
+  Stack Smashing: -fno-stack-protector
+
+gcc -fno-stack-protector -z execstack shellcodetest.c -o main
