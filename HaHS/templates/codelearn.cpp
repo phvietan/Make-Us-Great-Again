@@ -12,8 +12,12 @@ typedef pair<int, int> ii;
 #define FOD(i, r, l) for (int i = r; i >= l; i--)
 #define faster ios_base::sync_with_stdio(false) && cin.tie(NULL)
 
+#define debug 1
+
+#ifdef debug
 int main() {
 
     EL;
     return 0;
 }
+#endif

@@ -10,51 +10,66 @@ typedef pair<int, int> ii;
 #define sz(A) (int)A.size()
 #define FOR(i, l, r) for (int i = l; i <= r; i++)
 #define FOD(i, r, l) for (int i = r; i >= l; i--)
+#define faster ios_base::sync_with_stdio(false) && cin.tie(NULL)
 
-const int N = 5e5 + 5;
-int n, m, dd[N];
+// #define debug 1
 
-void solve() {
-    cin >> n >> m;
-    FOR(i, 1, 3 * n) dd[i] = false;
-
-    vector<int> res;
-    FOR(i, 1, m) {
-        int u, v;
-        cin >> u >> v;
-        if (!dd[u] && !dd[v]) {
-            dd[u] = dd[v] = 1;
-            res.push_back(i);
-        }
+struct node {
+    int u, deg;
+    bool operator<(const node &o) const {
+        return deg < o.deg;
     }
+};
 
-    if (res.size() >= n) {
-        cout << "Matching\n";
-        FOR(i, 0, n - 1) cout << res[i] << " ";
-    } else {
-        cout << "IndSet\n";
-        int cnt = 0;
-        for (int cnt = 0, i = 1; i <= 3 * n && cnt < n; i++) {
-            if (!dd[i]) {
-                cout << i << " ";
-                cnt++;
+int seqOneNineEight(std::vector<int> arr) {
+    int n = sz(arr);
+    vi diff({1, 8, 9});
+    unordered_set<int> a[n]; // adjacent nodes
+    FOR(i, 0, n - 1) FOR(j, i + 1, n - 1) {
+        for (int k : diff) {
+            if (abs(arr[i] - arr[j]) == k) {
+                a[i].insert(j);
+                a[j].insert(i);
+                break;
             }
         }
     }
 
-    cout << endl;
+    priority_queue<node> st;
+    FOR(i, 0, n - 1) {
+        if (sz(a[i])) {
+            st.push({i, sz(a[i])});
+        }
+    }
+
+    int res = 0;
+    while (!st.empty()) {
+        node t = st.top(); // node with maximal degree
+        st.pop();
+        int u = t.u;
+        if (t.deg != sz(a[u])) // old data
+            continue;
+        res++; // erase this node
+        unordered_set<int> g(a[u]);
+        for (auto it = g.begin(); it != g.end(); it++) {
+            int v = *it;
+            a[u].erase(v);
+            a[v].erase(u);
+            if (sz(a[v])) { // update this node
+                st.push({v, sz(a[v])});
+            }
+        }
+    }
+
+    return res;
 }
 
+#ifdef debug
 int main() {
 
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
+    cout << seqOneNineEight(vector<int>({11, 9, 10})) << endl;
 
-    int T;
-    cin >> T;
-    while (T--)
-        solve();
-
+    EL;
     return 0;
 }
+#endif
