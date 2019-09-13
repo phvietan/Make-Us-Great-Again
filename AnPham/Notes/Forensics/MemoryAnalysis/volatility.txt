@@ -1,0 +1,3 @@
+volatility -f <filename> | grep info
+
+Especially volatility -f <filename> --verbose imageinfo

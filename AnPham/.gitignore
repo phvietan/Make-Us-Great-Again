@@ -5,3 +5,7 @@ obj/
 *.cbp
 *.depend
 *.layout
+
+*.dmp
+*.tbz2
+

