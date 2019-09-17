@@ -9,6 +9,15 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/a.google.com', function (req, res) {
+  res.send('console.log("a");');
+  console.log('injected successfully');
+});
+
+app.get('/test', function (req, res) {
+  res.sendFile('/root/Documents/Make-Us-Great-Again/AnPham/Notes/Web/simple-web/test.html');
+});
+
 app.get('/*', function (req, res) {
     res.send('Hello World');
     console.log('Receive GET request at:', req.url);

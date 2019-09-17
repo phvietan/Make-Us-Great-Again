@@ -1,0 +1,90 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-09-15 22:47 PDT
+NSE: Loaded 148 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 22:47
+Completed NSE at 22:47, 0.00s elapsed
+Initiating NSE at 22:47
+Completed NSE at 22:47, 0.00s elapsed
+Initiating Ping Scan at 22:47
+Scanning 10.10.10.98 [4 ports]
+Completed Ping Scan at 22:47, 0.25s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 22:47
+Completed Parallel DNS resolution of 1 host. at 22:47, 13.00s elapsed
+Initiating SYN Stealth Scan at 22:47
+Scanning 10.10.10.98 [65535 ports]
+Discovered open port 23/tcp on 10.10.10.98
+Discovered open port 80/tcp on 10.10.10.98
+Discovered open port 21/tcp on 10.10.10.98
+SYN Stealth Scan Timing: About 2.86% done; ETC: 23:05 (0:17:34 remaining)
+SYN Stealth Scan Timing: About 8.79% done; ETC: 22:59 (0:10:33 remaining)
+SYN Stealth Scan Timing: About 11.74% done; ETC: 23:00 (0:11:24 remaining)
+SYN Stealth Scan Timing: About 13.63% done; ETC: 23:02 (0:12:47 remaining)
+SYN Stealth Scan Timing: About 18.34% done; ETC: 23:01 (0:11:13 remaining)
+SYN Stealth Scan Timing: About 24.17% done; ETC: 23:00 (0:09:28 remaining)
+SYN Stealth Scan Timing: About 29.03% done; ETC: 23:00 (0:08:43 remaining)
+SYN Stealth Scan Timing: About 40.12% done; ETC: 23:01 (0:08:01 remaining)
+SYN Stealth Scan Timing: About 47.98% done; ETC: 22:59 (0:06:22 remaining)
+SYN Stealth Scan Timing: About 55.24% done; ETC: 22:59 (0:05:09 remaining)
+SYN Stealth Scan Timing: About 65.39% done; ETC: 23:00 (0:04:34 remaining)
+SYN Stealth Scan Timing: About 71.23% done; ETC: 23:01 (0:03:52 remaining)
+SYN Stealth Scan Timing: About 77.99% done; ETC: 23:00 (0:02:50 remaining)
+SYN Stealth Scan Timing: About 85.40% done; ETC: 23:00 (0:01:48 remaining)
+SYN Stealth Scan Timing: About 90.83% done; ETC: 22:59 (0:01:07 remaining)
+Completed SYN Stealth Scan at 22:59, 698.56s elapsed (65535 total ports)
+Initiating Service scan at 22:59
+Scanning 3 services on 10.10.10.98
+Completed Service scan at 23:02, 162.53s elapsed (3 services on 1 host)
+Initiating OS detection (try #1) against 10.10.10.98
+Retrying OS detection (try #2) against 10.10.10.98
+Initiating Traceroute at 23:02
+Completed Traceroute at 23:02, 0.25s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 23:02
+Completed Parallel DNS resolution of 2 hosts. at 23:02, 13.00s elapsed
+NSE: Script scanning 10.10.10.98.
+Initiating NSE at 23:02
+NSE: [ftp-bounce] PORT response: 501 Server cannot accept argument.
+Completed NSE at 23:02, 12.55s elapsed
+Initiating NSE at 23:02
+Completed NSE at 23:02, 1.22s elapsed
+Nmap scan report for 10.10.10.98
+Host is up (0.22s latency).
+Not shown: 65532 filtered ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can't get directory listing: PASV failed: 425 Cannot open data connection.
+| ftp-syst: 
+|_  SYST: Windows_NT
+23/tcp open  telnet?
+80/tcp open  http    Microsoft IIS httpd 7.5
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/7.5
+|_http-title: MegaCorp
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|phone|specialized
+Running (JUST GUESSING): Microsoft Windows 8|Phone|2008|7|8.1|Vista|2012 (92%)
+OS CPE: cpe:/o:microsoft:windows_8 cpe:/o:microsoft:windows cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_8.1 cpe:/o:microsoft:windows_vista::- cpe:/o:microsoft:windows_vista::sp1 cpe:/o:microsoft:windows_server_2012:r2
+Aggressive OS guesses: Microsoft Windows 8.1 Update 1 (92%), Microsoft Windows Phone 7.5 or 8.0 (92%), Microsoft Windows 7 or Windows Server 2008 R2 (91%), Microsoft Windows Server 2008 R2 (91%), Microsoft Windows Server 2008 R2 or Windows 8.1 (91%), Microsoft Windows Server 2008 R2 SP1 or Windows 8 (91%), Microsoft Windows 7 (91%), Microsoft Windows 7 SP1 or Windows Server 2008 R2 (91%), Microsoft Windows 7 SP1 or Windows Server 2008 SP2 or 2008 R2 SP1 (91%), Microsoft Windows Vista SP0 or SP1, Windows Server 2008 SP1, or Windows 7 (91%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime guess: 0.011 days (since Sun Sep 15 22:46:29 2019)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+TRACEROUTE (using port 23/tcp)
+HOP RTT       ADDRESS
+1   224.95 ms 10.10.14.1
+2   225.26 ms 10.10.10.98
+
+NSE: Script Post-scanning.
+Initiating NSE at 23:02
+Completed NSE at 23:02, 0.00s elapsed
+Initiating NSE at 23:02
+Completed NSE at 23:02, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 910.64 seconds
+           Raw packets sent: 197123 (8.677MB) | Rcvd: 4933 (1.118MB)

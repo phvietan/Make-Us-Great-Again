@@ -1,0 +1,30 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-09-16 01:47 PDT
+NSE: Loaded 148 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 01:47
+Completed NSE at 01:47, 0.00s elapsed
+Initiating NSE at 01:47
+Completed NSE at 01:47, 0.00s elapsed
+Initiating Ping Scan at 01:47
+Scanning finhay.com.vn (13.229.198.252) [4 ports]
+Completed Ping Scan at 01:47, 0.04s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 01:47
+Completed Parallel DNS resolution of 1 host. at 01:47, 0.04s elapsed
+Initiating SYN Stealth Scan at 01:47
+Scanning finhay.com.vn (13.229.198.252) [65535 ports]
+Discovered open port 22/tcp on 13.229.198.252
+Discovered open port 443/tcp on 13.229.198.252
+Discovered open port 80/tcp on 13.229.198.252
+SYN Stealth Scan Timing: About 2.76% done; ETC: 02:05 (0:18:10 remaining)
+SYN Stealth Scan Timing: About 5.74% done; ETC: 02:04 (0:16:42 remaining)
+SYN Stealth Scan Timing: About 10.16% done; ETC: 02:04 (0:15:46 remaining)
+SYN Stealth Scan Timing: About 13.69% done; ETC: 02:04 (0:14:43 remaining)
+SYN Stealth Scan Timing: About 22.12% done; ETC: 02:04 (0:13:47 remaining)
+SYN Stealth Scan Timing: About 27.50% done; ETC: 02:04 (0:12:44 remaining)
+SYN Stealth Scan Timing: About 33.75% done; ETC: 02:04 (0:11:50 remaining)
+SYN Stealth Scan Timing: About 38.92% done; ETC: 02:04 (0:10:53 remaining)
+SYN Stealth Scan Timing: About 44.62% done; ETC: 02:05 (0:09:57 remaining)
+SYN Stealth Scan Timing: About 49.78% done; ETC: 02:04 (0:08:58 remaining)
+SYN Stealth Scan Timing: About 55.46% done; ETC: 02:05 (0:07:59 remaining)
+SYN Stealth Scan Timing: About 60.30% done; ETC: 02:04 (0:07:03 remaining)
+SYN Stealth Scan Timing: About 65.69% done; ETC: 02:04 (0:06:07 remaining)
