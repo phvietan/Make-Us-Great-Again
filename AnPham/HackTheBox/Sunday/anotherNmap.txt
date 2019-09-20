@@ -1,0 +1,97 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-09-15 20:23 PDT
+NSE: Loaded 148 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 20:23
+Completed NSE at 20:23, 0.00s elapsed
+Initiating NSE at 20:23
+Completed NSE at 20:23, 0.00s elapsed
+Initiating Ping Scan at 20:23
+Scanning 10.10.10.76 [4 ports]
+Completed Ping Scan at 20:23, 0.25s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 20:23
+Completed Parallel DNS resolution of 1 host. at 20:24, 13.00s elapsed
+Initiating SYN Stealth Scan at 20:24
+Scanning 10.10.10.76 [65535 ports]
+Discovered open port 111/tcp on 10.10.10.76
+Increasing send delay for 10.10.10.76 from 0 to 5 due to 28 out of 69 dropped probes since last increase.
+Increasing send delay for 10.10.10.76 from 5 to 10 due to 11 out of 24 dropped probes since last increase.
+Warning: 10.10.10.76 giving up on port because retransmission cap hit (6).
+SYN Stealth Scan Timing: About 2.10% done; ETC: 20:48 (0:24:08 remaining)
+SYN Stealth Scan Timing: About 3.63% done; ETC: 20:52 (0:26:59 remaining)
+SYN Stealth Scan Timing: About 16.96% done; ETC: 20:54 (0:25:33 remaining)
+Discovered open port 64697/tcp on 10.10.10.76
+SYN Stealth Scan Timing: About 25.16% done; ETC: 20:56 (0:23:59 remaining)
+SYN Stealth Scan Timing: About 30.92% done; ETC: 20:56 (0:22:23 remaining)
+SYN Stealth Scan Timing: About 37.47% done; ETC: 20:57 (0:20:43 remaining)
+SYN Stealth Scan Timing: About 43.45% done; ETC: 20:57 (0:19:02 remaining)
+Discovered open port 22022/tcp on 10.10.10.76
+SYN Stealth Scan Timing: About 49.61% done; ETC: 20:58 (0:17:17 remaining)
+SYN Stealth Scan Timing: About 56.13% done; ETC: 20:59 (0:15:34 remaining)
+SYN Stealth Scan Timing: About 64.50% done; ETC: 21:02 (0:13:46 remaining)
+SYN Stealth Scan Timing: About 70.51% done; ETC: 21:04 (0:11:47 remaining)
+Discovered open port 60041/tcp on 10.10.10.76
+SYN Stealth Scan Timing: About 75.80% done; ETC: 21:04 (0:09:44 remaining)
+SYN Stealth Scan Timing: About 80.87% done; ETC: 21:04 (0:07:42 remaining)
+SYN Stealth Scan Timing: About 85.79% done; ETC: 21:03 (0:05:39 remaining)
+Discovered open port 79/tcp on 10.10.10.76
+SYN Stealth Scan Timing: About 90.69% done; ETC: 21:03 (0:03:39 remaining)
+SYN Stealth Scan Timing: About 95.69% done; ETC: 21:03 (0:01:41 remaining)
+Completed SYN Stealth Scan at 21:07, 2624.80s elapsed (65535 total ports)
+Initiating Service scan at 21:07
+Scanning 5 services on 10.10.10.76
+Completed Service scan at 21:08, 32.00s elapsed (5 services on 1 host)
+Initiating OS detection (try #1) against 10.10.10.76
+Retrying OS detection (try #2) against 10.10.10.76
+Initiating Traceroute at 21:08
+Completed Traceroute at 21:08, 7.27s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 21:08
+Completed Parallel DNS resolution of 2 hosts. at 21:08, 13.00s elapsed
+NSE: Script scanning 10.10.10.76.
+Initiating NSE at 21:08
+Completed NSE at 21:09, 13.31s elapsed
+Initiating NSE at 21:09
+Completed NSE at 21:09, 2.83s elapsed
+Nmap scan report for 10.10.10.76
+Host is up (0.22s latency).
+Not shown: 65442 closed ports, 88 filtered ports
+PORT      STATE SERVICE VERSION
+79/tcp    open  finger  Sun Solaris fingerd
+| finger: Login       Name               TTY         Idle    When    Where\x0D
+|_sunny    sunny                 pts/2          3 Tue 06:48  10.10.14.17         \x0D
+111/tcp   open  rpcbind 2-4 (RPC #100000)
+22022/tcp open  ssh     SunSSH 1.3 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 d2:e5:cb:bd:33:c7:01:31:0b:3c:63:d9:82:d9:f1:4e (DSA)
+|_  1024 e4:2c:80:62:cf:15:17:79:ff:72:9d:df:8b:a6:c9:ac (RSA)
+60041/tcp open  unknown
+64697/tcp open  unknown
+Device type: firewall
+Running (JUST GUESSING): Fortinet embedded (87%)
+OS CPE: cpe:/h:fortinet:fortigate_100d
+Aggressive OS guesses: Fortinet FortiGate 100D firewall (87%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 22 hops
+Service Info: OS: Solaris; CPE: cpe:/o:sun:sunos
+
+TRACEROUTE (using port 1025/tcp)
+HOP RTT        ADDRESS
+1   656.88 ms  10.10.14.1
+2   1853.31 ms 10.10.14.1
+3   1853.32 ms 10.10.14.1
+4   ... 10
+11  1185.33 ms 10.10.14.1
+12  ... 18
+19  1856.80 ms 10.10.14.1
+20  1856.79 ms 10.10.14.1
+21  1189.61 ms 10.10.14.1
+22  208.84 ms  10.10.10.76
+
+NSE: Script Post-scanning.
+Initiating NSE at 21:09
+Completed NSE at 21:09, 0.00s elapsed
+Initiating NSE at 21:09
+Completed NSE at 21:09, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 2714.34 seconds
+           Raw packets sent: 125233 (5.516MB) | Rcvd: 77395 (3.541MB)

@@ -1,20 +1,78 @@
-Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-17 10:28 PDT
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-26 15:12 PDT
+NSE: Loaded 148 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 15:12
+Completed NSE at 15:12, 0.00s elapsed
+Initiating NSE at 15:12
+Completed NSE at 15:12, 0.00s elapsed
+Initiating Ping Scan at 15:12
+Scanning 10.10.10.76 [4 ports]
+Completed Ping Scan at 15:12, 0.34s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 15:12
+Completed Parallel DNS resolution of 1 host. at 15:13, 16.55s elapsed
+Initiating SYN Stealth Scan at 15:13
+Scanning 10.10.10.76 [1000 ports]
+Discovered open port 111/tcp on 10.10.10.76
+Increasing send delay for 10.10.10.76 from 0 to 5 due to max_successful_tryno increase to 4
+SYN Stealth Scan Timing: About 17.32% done; ETC: 15:16 (0:02:28 remaining)
+Increasing send delay for 10.10.10.76 from 5 to 10 due to max_successful_tryno increase to 5
+Increasing send delay for 10.10.10.76 from 10 to 20 due to max_successful_tryno increase to 6
+Increasing send delay for 10.10.10.76 from 20 to 40 due to max_successful_tryno increase to 7
+Increasing send delay for 10.10.10.76 from 40 to 80 due to 18 out of 59 dropped probes since last increase.
+SYN Stealth Scan Timing: About 37.40% done; ETC: 15:15 (0:01:42 remaining)
+Increasing send delay for 10.10.10.76 from 80 to 160 due to max_successful_tryno increase to 8
+Increasing send delay for 10.10.10.76 from 160 to 320 due to max_successful_tryno increase to 9
+SYN Stealth Scan Timing: About 42.96% done; ETC: 15:16 (0:02:01 remaining)
+Discovered open port 79/tcp on 10.10.10.76
+SYN Stealth Scan Timing: About 65.76% done; ETC: 15:18 (0:01:51 remaining)
+SYN Stealth Scan Timing: About 73.26% done; ETC: 15:19 (0:01:35 remaining)
+SYN Stealth Scan Timing: About 78.96% done; ETC: 15:19 (0:01:17 remaining)
+SYN Stealth Scan Timing: About 85.28% done; ETC: 15:19 (0:00:56 remaining)
+SYN Stealth Scan Timing: About 91.18% done; ETC: 15:19 (0:00:34 remaining)
+Completed SYN Stealth Scan at 15:20, 428.32s elapsed (1000 total ports)
+Initiating Service scan at 15:20
+Scanning 2 services on 10.10.10.76
+Completed Service scan at 15:20, 7.24s elapsed (2 services on 1 host)
+NSE: Script scanning 10.10.10.76.
+Initiating NSE at 15:20
+Completed NSE at 15:20, 0.65s elapsed
+Initiating NSE at 15:20
+Completed NSE at 15:20, 1.46s elapsed
 Nmap scan report for 10.10.10.76
-Host is up (0.38s latency).
-Not shown: 998 closed ports
-PORT    STATE SERVICE VERSION
-79/tcp  open  finger  Sun Solaris fingerd
+Host is up (0.31s latency).
+Not shown: 978 closed ports
+PORT      STATE    SERVICE         VERSION
+79/tcp    open     finger          Sun Solaris fingerd
 |_finger: No one logged on\x0D
-111/tcp open  rpcbind
-Aggressive OS guesses: Sun OpenSolaris 2008.11 (94%), Sun Solaris 9 or 10, or OpenSolaris 2009.06 snv_111b (94%), Sun Solaris 10 (93%), Sun Solaris 9 or 10 (SPARC) (92%), Sun Storage 7210 NAS device (91%), Sun Solaris 9 or 10 (91%), Oracle Solaris 11 (91%), Sun Solaris 8 (90%), Sun Solaris 8 (SPARC) (89%), Sun Solaris 9 (89%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 2 hops
+109/tcp   filtered pop2
+111/tcp   open     rpcbind         2-4 (RPC #100000)
+711/tcp   filtered cisco-tdp
+765/tcp   filtered webster
+1052/tcp  filtered ddt
+1117/tcp  filtered ardus-mtrns
+1301/tcp  filtered ci3-software-1
+1658/tcp  filtered sixnetudr
+2701/tcp  filtered sms-rcinfo
+3333/tcp  filtered dec-notes
+3905/tcp  filtered mupdate
+5120/tcp  filtered barracuda-bbs
+5555/tcp  filtered freeciv
+5901/tcp  filtered vnc-1
+6543/tcp  filtered mythtv
+7627/tcp  filtered soap-http
+8081/tcp  filtered blackice-icecap
+9418/tcp  filtered git
+10180/tcp filtered unknown
+62078/tcp filtered iphone-sync
+65389/tcp filtered unknown
 Service Info: OS: Solaris; CPE: cpe:/o:sun:sunos
 
-TRACEROUTE (using port 53/tcp)
-HOP RTT       ADDRESS
-1   760.10 ms 10.10.14.1
-2   760.30 ms 10.10.10.76
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 138.76 seconds
+NSE: Script Post-scanning.
+Initiating NSE at 15:20
+Completed NSE at 15:20, 0.00s elapsed
+Initiating NSE at 15:20
+Completed NSE at 15:20, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 455.41 seconds
+           Raw packets sent: 1664 (73.056KB) | Rcvd: 1020 (41.580KB)

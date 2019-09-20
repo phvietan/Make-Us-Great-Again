@@ -29,3 +29,8 @@ ports:
   110, 995: pop3: download email from server
   143, 993: imap: view email from server
   25, 2525, 465: SMTP: transfer email
+
+
+nmap -p 1-65535 -T4 -A -sS -sV -sC -v 10.10.10.76
+
+use john with rockyou.txt

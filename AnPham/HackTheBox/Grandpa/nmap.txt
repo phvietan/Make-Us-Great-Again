@@ -1,0 +1,17 @@
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-26 13:33 PDT
+Nmap scan report for 10.10.10.14
+Host is up (0.29s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE
+80/tcp open  http
+| http-methods: 
+|_  Potentially risky methods: TRACE COPY PROPFIND SEARCH LOCK UNLOCK DELETE PUT MOVE MKCOL PROPPATCH
+|_http-title: Under Construction
+| http-webdav-scan: 
+|   Server Date: Sat, 14 Sep 2019 15:12:03 GMT
+|   Server Type: Microsoft-IIS/6.0
+|   WebDAV type: Unkown
+|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH
+|_  Allowed Methods: OPTIONS, TRACE, GET, HEAD, COPY, PROPFIND, SEARCH, LOCK, UNLOCK
+
+Nmap done: 1 IP address (1 host up) scanned in 46.04 seconds
