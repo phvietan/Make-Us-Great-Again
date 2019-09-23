@@ -1,1 +1,0 @@
-wfuzz -c -v -u http://10.10.10.69/sync?FUZZ=writeup -w paramFuzz
