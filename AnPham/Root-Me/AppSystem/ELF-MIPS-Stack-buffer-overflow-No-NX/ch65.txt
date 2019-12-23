@@ -52,4 +52,3 @@ hello:  .asciz  "Hello World\nWhat is your name: "
     hello_len =    . - hello
 hello_start:  .asciz  "Hello "
     hello_start_len =    . - hello_start
-

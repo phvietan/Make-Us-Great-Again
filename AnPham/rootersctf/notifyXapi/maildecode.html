@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="something">hello world</a>
+
+    <script>
+
+    ! function() {
+        "use strict";
+
+        function t(e) {
+            return d.innerHTML = '<a href="' + e.replace(/"/g, "&quot;") + '"></a>', d.childNodes[0].getAttribute("href") || ""
+        }
+
+        function r(e, t) {
+            var r = e.substr(t, 2);
+            return parseInt(r, 16)
+        }
+
+        function n(n, c) {
+            for (var o = "", a = r(n, c), i = c + 2; i < n.length; i += 2) {
+                var l = r(n, i) ^ a;
+                o += String.fromCharCode(l)
+            }
+            o = decodeURIComponent(escape(o));
+            return t(o)
+        }
+
+        function c(t) {
+            console.log(t.querySelectorAll("a"));
+            console.log('---');
+            for (var r = t.querySelectorAll("a"), c = 0; c < r.length; c++) {
+                var o = r[c];
+                console.log(o);
+                console.log(l);
+                a = o.href.indexOf(l);
+                console.log(a);
+                a > -1 && (o.href = "mailto:" + n(o.href, a + l.length))
+            }
+        }
+
+        function o(t) {
+            for (var r = t.querySelectorAll(u), c = 0; c < r.length; c++) {
+              var o = r[c],
+                  a = o.parentNode,
+                  i = o.getAttribute(f);
+              if (i) {
+                  var l = n(i, 0),
+                      d = document.createTextNode(l);
+                  a.replaceChild(d, o)
+              }
+            }
+        }
+
+        function a(t) {
+            for (var r = t.querySelectorAll("template"), n = 0; n < r.length; n++)
+                i(r[n].content);
+        }
+
+        function i(t) { // t = document
+              c(t);
+              o(t);
+              a(t);
+        }
+        var l = "/cdn-cgi/l/email-protection#",
+            u = ".__cf_email__",
+            f = "data-cfemail",
+            d = document.createElement("div");
+            i(document);
+
+            var e = document.currentScript || document.scripts[document.scripts.length - 1];
+            e.parentNode.removeChild(e)
+    }();
+
+    </script>
+
+  </body>
+</html>

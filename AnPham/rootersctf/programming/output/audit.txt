@@ -1,0 +1,25 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Oct 11 06:16:03 2019
+Invocation: foremost CP.png 
+Output directory: /root/Documents/Make-Us-Great-Again/AnPham/rootersctf/programming/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: CP.png
+Start: Fri Oct 11 06:16:03 2019
+Length: 463 KB (475030 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000926.zip 	      581 B 	     474450 	 
+1:	00000000.png 	     463 KB 	          0 	  (1253 x 715)
+Finish: Fri Oct 11 06:16:03 2019
+
+2 FILES EXTRACTED
+	
+zip:= 1
+png:= 1
+------------------------------------------------------------------
+
+Foremost finished at Fri Oct 11 06:16:03 2019
